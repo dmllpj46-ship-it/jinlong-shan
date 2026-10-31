@@ -4,7 +4,7 @@
 
 ![金龙山场景定妆：蓝调黄昏下的断龙台、千阶与山下城市灯光](assets/locations/jinlong-shan.png)
 
-阅读站源码在 [`site/`](site/)，尚未部署；第一话成图后上线。
+阅读站源码在 [`site/`](site/)，已部署到 Cloudflare Pages：<https://jinlong-shan.pages.dev/>。
 
 ## Logline
 
@@ -91,10 +91,10 @@ site/                在线阅读站（无构建，Cloudflare Pages 部署源）
 
 - [x] 仓库骨架、世界观、画风规范
 - [x] 主角前世/今生、女主与金龙山初版定妆
+- [x] 阅读站部署（`jinlong-shan.pages.dev`）
 - [ ] 第一话「最后一单」四格分镜
 - [ ] 第一话成图
 - [ ] 对白与拟声上字
-- [ ] 阅读站部署
 
 ## 工作方式
 
