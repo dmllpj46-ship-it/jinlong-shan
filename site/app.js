@@ -27,6 +27,14 @@ const cast = [
         anchor: "沈珩的第五世。二十八岁，不记得前世，只想把这个月过完。",
         sheet: "assets/characters/chen-mo.png",
       },
+      {
+        slug: "su-que",
+        name: "苏雀",
+        en: "Su Que",
+        role: "苏昭的师妹 · 纸替身 · 便利店夜班",
+        anchor: "锁断那夜她不在山上，所以没被守山印钉住。靠纸替身活到今天，每隔一阵要回昭记取灯油。",
+        sheet: "assets/characters/su-que.png",
+      },
     ],
   },
   {
