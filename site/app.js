@@ -63,6 +63,19 @@ const cast = [
       },
     ],
   },
+  {
+    group: "终极形态 · 锁心",
+    members: [
+      {
+        slug: "jin-long",
+        name: "金龙",
+        en: "Jin Long · 终极形态",
+        role: "男主终极形态 · 人化锁",
+        anchor: "不是召唤出来的龙。是沈珩/陈默把自己填进锁后，金脉长出的龙身；四足抓山，不飞，不离山。",
+        sheet: "assets/characters/jin-long.png",
+      },
+    ],
+  },
 ];
 
 // 成图后的页面：{ n, ch, slug, title, lines: [[who, say]], note }
@@ -167,7 +180,7 @@ function renderEmptyPages(root) {
   box.innerHTML = `
     <p class="empty-kicker">Not yet drawn</p>
     <h3>第一话尚未开画</h3>
-    <p>角色、赤蟒与金龙山已经定妆。下一步：四格分镜 → 逐页成图 → 统一上字。第一页成图后，这里会逐页更新。</p>
+    <p>角色、赤蟒、金龙与金龙山已经定妆。下一步：四格分镜 → 逐页成图 → 统一上字。第一页成图后，这里会逐页更新。</p>
     <a href="#cast">先看角色 →</a>`;
   root.appendChild(box);
 }
