@@ -1,17 +1,19 @@
 # Character & World Design Bible
 
-This file is the canon. Every future page, cover or promo image must match the sheets in `assets/characters/` and the location anchor in `assets/locations/`, and the rules below. When a page and this file disagree, this file wins.
+This file is the canon. Every future page, cover or promo image must match the sheets in `assets/characters/`, the creature sheet in `assets/creatures/` and the location anchor in `assets/locations/`, and the rules below. When a page and this file disagree, this file wins.
 
 ## Status
 
 - v1 · 世界观、两位主角、金龙山场景锚点已定妆。
+- v1.1 · 赤蟒（`chi-mang`）怪物定妆。
 - Canon sheets:
   - `assets/characters/shen-heng.png`
   - `assets/characters/chen-mo.png`
   - `assets/characters/su-zhao.png`
+  - `assets/creatures/chi-mang.png`
   - `assets/locations/jinlong-shan.png`
-- Thumbnails: `assets/characters/thumbs/<slug>.jpg`（4:5，仅用于阅读站，不参与设定判断）.
-- 角色定妆后：设定图入库 → 本节补条目 → 更新 `README.md` 角色表 → 更新 `site/app.js` 的 `cast`。
+- Thumbnails: `assets/{characters,creatures}/thumbs/<slug>.jpg`（4:5，仅用于阅读站，不参与设定判断）.
+- 角色或怪物定妆后：设定图入库 → 本节补条目 → 更新 `README.md` 角色表 → 更新 `site/app.js` 的 `cast`。
 - 任何改动都以新版本文件出现（`shen-heng-v2.png`），不覆盖初版。
 
 ## Locked art direction
@@ -33,6 +35,8 @@ Modern-era block — 今生，山下城：
 > modern Chinese peri-urban city at night, rideshare sedans and delivery scooters without logos, sodium streetlights, cold phone screens, wet asphalt, a dark mountain ridge behind the buildings, restrained ink-and-halftone manga rendering
 
 Reference-sheet layout (for new characters only): vertical sheet, full-body three-quarter view on the left, large head-and-shoulders portrait on the right, thin ink border frame, faint halftone paper background, no text or labels.
+
+Creature-sheet layout (for non-human anchors): vertical sheet, full-body on the left, then detail panels for head, scale or surface, and the sealed or combat context; same ink border, halftone paper and no text.
 
 ## World canon
 
@@ -74,7 +78,7 @@ Reference-sheet layout (for new characters only): vertical sheet, full-body thre
 ### 画风与叙事禁令
 
 - **金龙形态**：只能是金脉、岩层裂纹、灯火与倒影里的龙形。禁止西式有翼巨龙、恐龙、蜥蜴人，禁止把山画成一条会飞的活龙。
-- **赤蟒形态**：东方巨蟒，无翼、无角，鳞如锈铁。故事前段只给眼、鳞、山体下的阴影与声音；禁止提前画完整蟒身。
+- **赤蟒形态**：东方巨蟒，无翼、无角、无四肢，鳞如锈铁。完整蟒身只允许出现在设定稿 `assets/creatures/chi-mang.png`；正篇前段只给一只竖瞳眼、鳞、金屑、山体下的阴影与声音，全貌留到故事后段。
 - **金色预算**：一页里饱和金只允许出现在金脉、引魂灯、红绳与龙气四处。现代城市灯光用冷青与钠黄；官服、铠甲、首饰用低饱和黄铜或土金。
 - **现代场景**：同样用墨线、网点与赛璐璐，不画照片感、不画 3D。手机屏幕、订单界面、路牌一律空白或不可读；禁止真实品牌 logo（滴滴、外卖平台等只用通用图形）。
 - **前世场景**：中国山岳寺观、石阶、经幡、青铜灯。不要欧式城堡、尖顶教堂、蒸汽朋克机械。
@@ -123,6 +127,19 @@ Reference-sheet layout (for new characters only): vertical sheet, full-body thre
 - **叙事状态**：第一话结尾首次登场；已知陈默是第五世，但不敢直接告诉他真相；她只剩这一世的时间。
 - **前世造型（待补）**：同脸、无白发、太清宫月白/黛青弟子袍、简单发髻、佩断水。需要闪回特写时再出 `su-zhao-past.png`。
 
+### `chi-mang` — 赤蟒（山腹魔蟒）
+
+- **文件**：`assets/creatures/chi-mang.png`，1024x1536；缩略图 `assets/creatures/thumbs/chi-mang.jpg`（4:5，仅站内用）。
+- **叙事合同**：金龙山山腹里被金脉锁住的东方巨蟒。吃地脉，不吃人；它以贪念与梦为缝，让人替它把锁拆开。五百年前被沈珩燃魂压回山底。
+- **出现方式**：正篇前段只给一只竖瞳眼、鳞、金屑、山体下的阴影与声音；完整蟒身只允许出现在设定稿，全貌留到故事后段。
+- **体型**：长度未知；躯干粗如公路隧道，能整条穿过山腹。无翼、无角、无四肢。
+- **头部 / 眼**：钝重蟒首，锈铁红鳞；眉骨与眼睑覆矿物硬壳；一只竖瞳眼，瞳面有石粉薄膜和一点病态金光；下颌能脱臼张开；骨白后弯牙；深朱砂喉。
+- **鳞 / 腹**：鳞片像锈铁与黑红岩层的叠片，边缘崩口；鳞缝只在进食时渗朱砂色微光。腹鳞分叉成短根须，扎进岩层吸地脉，根部沾金屑。
+- **封印痕迹**：颈后嵌着一枚金龙锁断裂的旧金钉。金只以矿脉、裂纹、断链的形态出现，不成活龙。
+- **配色**：锈赤 `#8f3a2a` / 暗朱 `#6d241c` / 墨黑 `#1b1816` / 骨白 `#d8c9a8` / 旧金 `#b08d3f`。
+- **Never-change**：竖瞳独眼与石粉薄膜；锈铁红鳞与黑红岩层鳞缝；骨白后弯牙；腹下根须；颈后断裂金钉；无翼、无角、无四肢。
+- **初版偏差记录**：封印剖面格只画出金链与断钉，金龙形矿脉不够明显；正篇涉及锁眼时以「岩层里的龙形金脉」为准，不据设定稿改世界规则。头部略偏鳄相，正篇画得更接近蟒：吻部更长更窄，牙更密。
+
 ## Location anchor
 
 ### `jinlong-shan` — 金龙山（场景定妆）
@@ -158,6 +175,7 @@ Reference-sheet layout (for new characters only): vertical sheet, full-body thre
 ## Naming conventions
 
 - Character slugs: lowercase kebab-case, e.g. `shen-heng`, `chen-mo`, `su-zhao`.
+- Creature slugs: `chi-mang`; sheets live in `assets/creatures/`.
 - Location slugs: `jinlong-shan`, `shanmen-town`, `duanlong-terrace`, `taiqing-palace`.
 - Chinese name + English name in the docs and site.
 - Chapter folders: `comic/chNN/`; pages: `pNN.png` + `pNN.md` (two digits, continuous across chapters as the story grows).

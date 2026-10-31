@@ -8,7 +8,7 @@ A Japanese-manga-style Eastern fantasy comic, working title **金龙山 / JINLON
 
 ## Hard rules
 
-1. **`assets/characters/*.png` and `assets/locations/*.png` are the canon.** Never redesign, recolor or restyle an existing character or location without explicit user approval. A changed design ships as a new versioned sheet (e.g. `shen-heng-v2.png`) plus an update to `assets/characters/design-bible.md`.
+1. **`assets/characters/*.png`, `assets/creatures/*.png` and `assets/locations/*.png` are the canon.** Never redesign, recolor or restyle an existing character, creature or location without explicit user approval. A changed design ships as a new versioned sheet (e.g. `shen-heng-v2.png`) plus an update to `assets/characters/design-bible.md`.
 2. **Match the locked art direction** in the design bible for every new image. Reuse the style block verbatim.
 3. **Keep the never-change list intact** for each character: signature props, hair, eyes, silhouette, palette.
 4. **Comic pages are exactly 4 panels** unless the user explicitly approves another layout. Start every page prompt with “exactly 4 panels”. No photorealism, no 3D-render look.
@@ -22,19 +22,21 @@ A Japanese-manga-style Eastern fantasy comic, working title **金龙山 / JINLON
 ## Image workflow
 
 - Tool: `ImageGen`. Use character sheets as identity references; label them in the prompt (“the first image is the identity reference; keep face, hair, costume and palette unchanged”).
-- New character sheets: 1024x1536, same reference-sheet layout as the design bible specifies.
+- New character sheets: 1024x1536, same reference-sheet layout as the design bible specifies. Creature sheets: also 1024x1536, full body plus head/scale/sealed-context detail panels.
 - Comic pages: 1024x1536 portrait (or 1536x1024 for wide establishing shots), four-panel layout, same ink/screentone style.
 - Style continuity: when drawing page N, pass page N−1 as an additional reference image to lock linework, screentone density and palette.
-- Save to `assets/characters/<slug>.png` for character sheets, `assets/locations/<slug>.png` for location anchors, `comic/chNN/pNN.png` for pages (2-digit chapter, 2-digit page). `ch01` = chapter 1.
+- Save to `assets/characters/<slug>.png` for character sheets, `assets/creatures/<slug>.png` for creature sheets, `assets/locations/<slug>.png` for location anchors, `comic/chNN/pNN.png` for pages (2-digit chapter, 2-digit page). `ch01` = chapter 1.
 - Character sheets: 1024x1536. Location anchors: 1536x1024.
 - Cover art lives at `assets/cover.png`: art only, with a calm band left clear at the top so the HTML title can sit over it. The current cover contains no characters; if a future cover includes them, use the locked sheets and keep the top band clear.
 - After generating, copy the final file into the repo; do not commit the raw `vibe_images/` output folder.
 
 ## Character slugs
 
-Locked: `shen-heng`（前世）, `chen-mo`（今生）, `su-zhao`（女主）. Location anchor: `jinlong-shan`.
+Locked: `shen-heng`（前世）, `chen-mo`（今生）, `su-zhao`（女主）. Creature: `chi-mang`（赤蟒）. Location anchor: `jinlong-shan`.
 
 Supporting roles are not named yet. Add a slot only when the story needs one, and lock it with a sheet before it gets a canon face.
+
+`chi-mang` is a creature anchor, not a human. The full body is allowed only on its design sheet; story pages reveal fragments until the story's late act.
 
 `jinlong-shan` is a location anchor: a wide scene sheet, not a character sheet. Its never-change list binds every frame that shows the mountain.
 
@@ -50,9 +52,9 @@ Supporting roles are not named yet. Add a slot only when the story needs one, an
 - Local preview: run `python -m http.server` at the repo root and open `/site/`. Serving from the repo root is required: HTML images fall back to `../assets/...`, and `app.js` images fall back raw → jsDelivr → `../<path>`.
 - **Images are never copied into `site/`.** They are referenced as `raw.githubusercontent.com/dmllpj46-ship-it/jinlong-shan/main/...`, with a jsDelivr fallback in `app.js`. Pushing to `main` updates art immediately; only HTML/JS/CSS changes need a redeploy.
 - Adding a page: commit `comic/chNN/pNN.png` + `pNN.md`, add an entry to the `pages` array in `site/app.js`, then redeploy.
-- When a character is locked: add `assets/characters/<slug>.png`, a 4:5 `thumbs/<slug>.jpg` crop, and the matching entry in the `cast` array in `site/app.js`.
+- When a character or creature is locked: add `assets/<characters|creatures>/<slug>.png`, a 4:5 `thumbs/<slug>.jpg` crop, and the matching entry in the `cast` array in `site/app.js`.
 - The mountain anchor is a static `<figure class="scene-anchor">` in `index.html`, not part of the cast gallery.
-- Deploy command (Cloudflare Pages project to be created on first deploy):
+- Deploy command (Cloudflare Pages project `jinlong-shan`, production branch `main`; live at https://jinlong-shan.pages.dev/):
   `wrangler pages deploy site --project-name jinlong-shan --branch main --commit-dirty=true --cwd <repo root>`
 
 ## Commits
