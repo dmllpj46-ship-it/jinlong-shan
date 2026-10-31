@@ -43,7 +43,7 @@ A Japanese-manga-style Eastern fantasy comic, working title **金龙山 / JINLON
 
 ## Character slugs
 
-Locked: `shen-heng`（前世）, `chen-mo`（今生）, `su-zhao`（女主）, `su-que`（女主师妹）, `jin-long`（男主终极形态）. Creature: `chi-mang`（赤蟒）. Location anchor: `jinlong-shan`.
+Locked: `shen-heng`（前世）, `chen-mo`（今生）, `su-zhao`（女主）, `su-que`（女主师妹）, `jin-long`（男主终极形态）. Creature: `chi-mang`（赤蟒）. Location anchor: `jinlong-shan`. Episode supporting roles, locked but still unnamed: `lao-fu`（老妇）, `nv-hai`（初中女生）.
 
 Supporting roles are not named yet. Add a slot only when the story needs one, and lock it with a sheet before it gets a canon face.
 
