@@ -42,6 +42,19 @@ const cast = [
       },
     ],
   },
+  {
+    group: "山腹 · 锁下",
+    members: [
+      {
+        slug: "chi-mang",
+        name: "赤蟒",
+        en: "Chi Mang",
+        role: "山腹魔蟒 · 吃地脉者",
+        anchor: "五百年前被沈珩以魂为锁压回山底。它不吃人，它吃地脉；人只是它做梦的缝。",
+        sheet: "assets/creatures/chi-mang.png",
+      },
+    ],
+  },
 ];
 
 // 成图后的页面：{ n, ch, slug, title, lines: [[who, say]], note }
@@ -80,10 +93,10 @@ function renderCast() {
       const figure = document.createElement("figure");
       figure.className = "cast-photo";
       const photo = document.createElement("img");
-      const thumbPath = `assets/characters/thumbs/${m.slug}.jpg`;
+      const thumbPath = m.sheet.replace(/\/([^/]+)\.png$/, "/thumbs/$1.jpg");
       withFallback(photo, thumbPath);
       photo.src = repoUrl(thumbPath);
-      photo.alt = `${m.name} 角色设定头像`;
+      photo.alt = `${m.name} 定妆头像`;
       photo.loading = "lazy";
       figure.appendChild(photo);
       figure.addEventListener("click", () => openGallery(castGallery(), castIndex(m.slug)));
@@ -126,7 +139,7 @@ function castGallery() {
     group.members.map((m) => ({
       slug: m.slug,
       path: m.sheet,
-      alt: `${m.name} 角色设定稿`,
+      alt: `${m.name} 定妆稿`,
       cap: `${m.name} · ${m.en}`,
     }))
   );
@@ -146,7 +159,7 @@ function renderEmptyPages(root) {
   box.innerHTML = `
     <p class="empty-kicker">Not yet drawn</p>
     <h3>第一话尚未开画</h3>
-    <p>角色与金龙山已经定妆。下一步：四格分镜 → 逐页成图 → 统一上字。第一页成图后，这里会逐页更新。</p>
+    <p>角色、赤蟒与金龙山已经定妆。下一步：四格分镜 → 逐页成图 → 统一上字。第一页成图后，这里会逐页更新。</p>
     <a href="#cast">先看角色 →</a>`;
   root.appendChild(box);
 }
