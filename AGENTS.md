@@ -30,7 +30,9 @@ A Japanese-manga-style Eastern fantasy comic, working title **金龙山 / JINLON
     - The dominant panel changes position from page to page (top band → middle pair → bottom band → side column) so consecutive fight pages never feel the same.
     - Write that page's panel sizes into the script's 绘制备注 before generating, and state the row/column grammar in the prompt ("three rows: full-width band / two panels side by side / full-width band"). Image models add a fifth panel when the geometry leaves an open region — use tiling layouts, not L-shapes.
     - 版式必须写成纯几何描述：先声明每一行占页高的百分比与每行的格数，再声明「斜切格线只存在于第 N 行内部，不得上下越行」，最后逐格点名「本格只有 X / 本格没有 Y」。只写「four panels」不够——室内多人页最容易多切出一格窄条。
+    - 同一页连续两次溢出格数，就立刻降一档格数（4→3），改用「一条贯通横线 + 一条只在带内的斜线」这种最少格线版式；本页只要保住主格、斜切与出血。
     - 每次成图先查三件事：格数、同一角色是否被复制两份（含手里的道具换样）、参考图串味（定妆稿站姿、他人特征）。任一不合格才定向重roll一次。
+    - 同页有特征相近的角色时（苏昭 / 苏雀 / 陈默），提示词必须写 HAIR / CAST LOCK：逐人写死外套、发髻、白发归属，并写明「穿 X 衣服的人一定有 Y 头发」；参考图**第一位**决定特征派给谁，谁容易被抢特征就把谁的定妆稿放第一位。
 
 ## Image workflow
 
