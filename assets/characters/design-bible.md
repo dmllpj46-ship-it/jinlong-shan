@@ -8,6 +8,7 @@ This file is the canon. Every future page, cover or promo image must match the s
 - v1.1 · 赤蟒（`chi-mang`）怪物定妆。
 - v1.2 · 苏雀（`su-que`）定妆：苏昭的师妹，纸替身续命，活动于现代。
 - v1.3 · 金龙（`jin-long`）定妆：男主的终极形态，人化锁，不是召唤物。
+- v1.4 · 序章「焚山」正典：金龙分战时态/锁成态；元神九裂；恶龙潭；师父之死。
 - Canon sheets:
   - `assets/characters/shen-heng.png`
   - `assets/characters/chen-mo.png`
@@ -52,14 +53,14 @@ Creature-sheet layout (for non-human anchors): vertical sheet, full-body on the 
 
 1. **金龙首先是锁，不是自由的活龙。** 山腹金脉在岩层里走成一条龙，是封印健康时的形状。金亮则锁稳，金暗则蟒动。平时龙形只允许出现在岩层、裂纹、灯火与倒影里；唯一的实体龙形是男主的终极形态，出现即意味着有人在填锁。
 2. **赤蟒吃地脉。** 它被锁在山腹，以贪念与梦为缝。它不直接说话，只通过金屑、耳鸣、过亮的金色与人的发财梦渗透。
-3. **燃魂不可逆。** 太清宫禁术，以魂魄为引。沈珩在断龙台用过一次，魂碎成数缕，转生不完整；这也是他每一世都记不起来的原因。
-4. **守山印是保护也是钉子。** 沈珩自爆前把一半守山印打进苏昭体内。她因此不老、不死，也走不出山门三十里。她无法下山找他，只能等他上山。
+3. **燃魂不可逆。** 太清宫禁术，以魂魄为引。沈珩在断龙台用过一次，魂裂成九块，先散向九方；主魂那块被引魂灯每百年拉回山脚转生，其余八块留在远方。转生因此不完整，每一世都记不起来。
+4. **守山印是保护也是钉子。** 沈珩自爆前把一半守山印打进苏昭体内。她用这半枚印和幸存门人一起把赤蟒封进恶龙潭；封印落成，印也把她钉住。她因此不老、不死，也走不出山门三十里。她无法下山找他，只能等他上山。
 5. **引魂灯只认本人。** 沈珩的本命灯五百年前熄灭；苏昭用记忆、香火和血养了五百年，也只养出一点火星。灯真正亮起来，只能由沈珩自己的手。
-6. **转世不是唤醒，是承认。** 魂缕每百年落回山脚，成为普通人。外力只能让他看见碎片；想起来必须由他自己愿意承认「那是我」。
+6. **转世不是唤醒，是承认。** 主魂那块每百年被灯拉回山脚，成为普通人。外力只能让他看见碎片；想起来必须由他自己愿意承认「那是我」。
 7. **金脉是现代人眼里的矿。** 采金、修路、打隧道都在拆锁。现代线的反派不需要懂法术，只需要一份工程进度表。
-8. **每百年一次，第五百年最危险。** 魂缕归来与封印松动同步发生。陈默是第五个「他」，也是五百年来最完整的一个。
-9. **复活要有人填锁。** 灯亮、魂全、印合，只是把人叫回来；锁还要有人守。苏昭等了五百年，等的不是一个奇迹，是一个选择：让陈默活，还是让山稳。
-10. **金龙是男主的终极形态，不是第二条龙。** 沈珩/陈默把自己填进锁，金脉才长出龙身。它不飞、不离山、不喷火、不独立说话；不是可召唤的宠物，也不是赤蟒那样的独立怪物。金龙出现，就是有人选择留下。
+8. **每百年一次，第五百年最危险。** 主魂归来与封印松动同步发生。陈默是第五个「他」，也是五百年来最完整的一个。
+9. **复活要有人填锁。** 灯亮、九块魂全、印合，只是把人叫回来；锁还要有人守。苏昭等了五百年，等的不是一个奇迹，是一个选择：让陈默活，还是让山稳。
+10. **金龙是男主的终极形态，不是第二条龙。** 沈珩/陈默把自己填进锁，金脉才长出龙身。它分两态：**战时态**可昂首腾空、离地作战，但下半身始终由金脉牵回山体，不出金龙山上空；**锁成态**四足抓山、嵌回岩层。两态都无翼、不喷火、不独立说话；不是可召唤的宠物，也不是赤蟒那样的独立怪物。金龙出现，就是有人选择留下。
 
 ### 势力
 
@@ -77,12 +78,13 @@ Creature-sheet layout (for non-human anchors): vertical sheet, full-body on the 
 - **断龙台。** 山腰的破环石台，金龙锁的锁眼，也是沈珩自爆的地方。石缝里嵌着烧化的符布，金光是从裂缝里透出来的，不是灯。
 - **太清宫。** 山脊上的废墟，现在是文保单位。正殿锁着，侧殿改成了值班室；灯房的地砖下面还有五百年前的灯油痕。
 - **山下城。** 现代城市。陈默租在物流园附近，楼下有 24 小时便利店；夜里跑滴滴，周末送外卖。城市灯光是冷青和钠黄，和山上的金完全不同。
-- **山腹金龙。** 金脉在岩层里走出的龙形。只在断龙台裂缝、雨后湿岩、灯焰倒影里出现。它不是生物，不会动，但会随着锁的强弱变亮变暗。男主的终极形态会让这条龙形短暂成为实体，但仍锁在山里。
-- **赤蟒渊。** 山腹更深处，只有声音、热气、金屑和一片巨大的影子。全貌留到故事后段。
+- **山腹金龙。** 金脉在岩层里走出的龙形。只在断龙台裂缝、雨后湿岩、灯焰倒影里出现。它不是生物，不会动，但会随着锁的强弱变亮变暗。男主的终极形态会让这条龙形短暂成为实体：战时态可离地，但被金脉牵回山体；自爆后转为锁成态，四足抓山。
+- **恶龙潭。** 断龙台下方的黑水石潭，原是锁眼的冷却池。五百年前赤蟒重伤后坠入此潭，苏昭与幸存门人用金脉锁链和守山印把它封在水底。潭水常年不流，石岸上留着断链与烧化的符布；现代被景区石栏围起，牌子上不写潭名。
+- **赤蟒渊。** 恶龙潭再往下的深处，只有声音、热气、金屑和一片巨大的影子。赤蟒被封在恶龙潭，身体仍垂进赤蟒渊；全貌留到故事后段。
 
 ### 画风与叙事禁令
 
-- **金龙形态**：平时只能是金脉、岩层裂纹、灯火与倒影里的龙形，禁止会飞的活龙。唯一的实体龙形是男主的终极形态 `jin-long`：人化锁，四足抓山，龙身由岩层与金脉构成，不离山、不飞、不喷火、不独立说话。禁止西式有翼巨龙、恐龙、蜥蜴人。
+- **金龙形态**：平时只能是金脉、岩层裂纹、灯火与倒影里的龙形，禁止自由飞行的活龙。唯一的实体龙形是男主的终极形态 `jin-long`，分战时态与锁成态：战时态可昂首腾空，但必须有金脉或龙尾连回山体，不出金龙山上空；锁成态四足抓山、嵌回岩层。两态都无翼、不喷火、不独立说话。禁止西式有翼巨龙、恐龙、蜥蜴人、云海自由飞行。
 - **赤蟒形态**：东方巨蟒，无翼、无角、无四肢，鳞如锈铁。完整蟒身只允许出现在设定稿 `assets/creatures/chi-mang.png`；正篇前段只给一只竖瞳眼、鳞、金屑、山体下的阴影与声音，全貌留到故事后段。
 - **金色预算**：一页里饱和金只允许出现在金脉、引魂灯、红绳与龙气四处。现代城市灯光用冷青与钠黄；官服、铠甲、首饰用低饱和黄铜或土金。
 - **现代场景**：同样用墨线、网点与赛璐璐，不画照片感、不画 3D。手机屏幕、订单界面、路牌一律空白或不可读；禁止真实品牌 logo（滴滴、外卖平台等只用通用图形）。
@@ -95,7 +97,7 @@ Creature-sheet layout (for non-human anchors): vertical sheet, full-body on the 
 
 ### `shen-heng` — 沈珩 / 道号玄珩（前世）
 
-- **叙事合同**：太清宫末代大法师，灯脉与印脉的双修者；金龙锁的最后一环。二十七岁在断龙台燃魂，把赤蟒压回山底。
+- **叙事合同**：太清宫末代大法师，灯脉与印脉的双修者；金龙锁的最后一环。二十七岁在断龙台燃魂，把赤蟒重伤坠入恶龙潭。
 - **出现方式**：第一话的梦、闪回、灯焰与山腹回声；完整复活留到故事后段。他不是旁白，他的每次出现都要让陈默更接近「承认」。
 - **年龄 / 体型 / 站姿**：27 岁，182 cm，清瘦挺拔，站姿如松；左手常负后或持灯。
 - **发型 / 面部 / 眼神**：黑长发半束，素白玉珩簪；高眉骨，眼尾略垂，琥珀色瞳带金屑；右下颌至右颈有一道旧灼痕；薄唇，少笑，眼神克制。
@@ -104,7 +106,14 @@ Creature-sheet layout (for non-human anchors): vertical sheet, full-body on the 
 - **配色**：墨青 `#1c2b33` / 月白 `#e8e1d0` / 旧金 `#b08d3f` / 朱砂 `#a83a2c`。
 - **Never-change**：白玉珩簪；右下颌至颈的灼痕；琥珀金瞳；环形灯首的引魂灯；左小臂朱砂符布。
 - **初版偏差记录**：肖像里灼痕被发丝与衣领遮住，以全身像为准；灯首是环焰，不是提灯。
-- **叙事状态**：已死五百年；在陈默的梦里反复出现，脸始终差一点看清。首次完整正脸留给第一话闪回（待分镜）。
+- **叙事状态**：已死五百年；序章「焚山」首次给完整正脸、燃魂与死亡过程；之后在陈默的梦里反复出现，脸始终差一点看清。
+
+### `shifu` — 师父（未定妆配角）
+
+- **叙事合同**：太清宫掌门，沈珩与苏昭的师父。锁断之夜，他在断龙台前结印压蟒，被赤蟒反口吞没；临死前把铜铃与半截法剑留给沈珩。他没有留下名字，也不会有正脸设定图。
+- **出现方式**：只在序章出现。画面只允许背影、侧影、手、宽袖、白须边缘、铜铃与法剑；禁止生成可辨认的正脸或另起名字。
+- **叙事作用**：他的死是沈珩燃魂的直接原因；他留下的铜铃成为守山一脉的旧铜铃来源。
+- **Never-change**：月白/墨青掌门袍、宽袖、旧铜铃、半截法剑；不露正脸。
 
 ### `chen-mo` — 陈默（今生）
 
@@ -130,7 +139,7 @@ Creature-sheet layout (for non-human anchors): vertical sheet, full-body on the 
 - **配色**：炭灰 `#2b2b2b` / 月白 `#ddd5c4` / 褪朱砂 `#8e3b32` / 旧金 `#a98a4a`。
 - **Never-change**：右鬓白发；灯柄上的朱砂绳；断水短剑；纸骨灯；清冷克制的表情。
 - **叙事状态**：第一话结尾首次登场；已知陈默是第五世，但不敢直接告诉他真相；她只剩这一世的时间。
-- **前世造型（待补）**：同脸、无白发、太清宫月白/黛青弟子袍、简单发髻、佩断水。需要闪回特写时再出 `su-zhao-past.png`。
+- **前世造型**：同脸、无白发、太清宫月白/黛青弟子袍、简单发髻、佩断水。序章按此绘制，复用 `su-zhao.png` 作脸与道具参考，不另出设定图。
 
 ### `su-que` — 苏雀（苏昭的师妹 / 纸替身）
 
@@ -151,7 +160,7 @@ Creature-sheet layout (for non-human anchors): vertical sheet, full-body on the 
 ### `chi-mang` — 赤蟒（山腹魔蟒）
 
 - **文件**：`assets/creatures/chi-mang.png`，1024x1536；缩略图 `assets/creatures/thumbs/chi-mang.jpg`（4:5，仅站内用）。
-- **叙事合同**：金龙山山腹里被金脉锁住的东方巨蟒。吃地脉，不吃人；它以贪念与梦为缝，让人替它把锁拆开。五百年前被沈珩燃魂压回山底。
+- **叙事合同**：金龙山山腹里被金脉锁住的东方巨蟒。吃地脉，不吃人；它以贪念与梦为缝，让人替它把锁拆开。五百年前被沈珩燃魂重伤，坠入恶龙潭，由苏昭与幸存门人封在水底。
 - **出现方式**：正篇前段只给一只竖瞳眼、鳞、金屑、山体下的阴影与声音；完整蟒身只允许出现在设定稿，全貌留到故事后段。
 - **体型**：长度未知；躯干粗如公路隧道，能整条穿过山腹。无翼、无角、无四肢。
 - **头部 / 眼**：钝重蟒首，锈铁红鳞；眉骨与眼睑覆矿物硬壳；一只竖瞳眼，瞳面有石粉薄膜和一点病态金光；下颌能脱臼张开；骨白后弯牙；深朱砂喉。
@@ -164,16 +173,16 @@ Creature-sheet layout (for non-human anchors): vertical sheet, full-body on the 
 ### `jin-long` — 金龙（男主终极形态）
 
 - **文件**：`assets/characters/jin-long.png`，1024x1536；缩略图 `assets/characters/thumbs/jin-long.jpg`（4:5，仅站内用）。
-- **叙事合同**：男主的终极形态。不是召唤物，是沈珩/陈默把自己填进锁之后，金脉长出的龙身。出现即意味着有人选择留下。不飞、不离山、不喷火、不独立说话；不是第二条龙，也不是可操控的式神。
-- **出现方式**：平时只有山腹金脉的龙形。终极形态留到故事后段，首次出现必须同时给两个信息——人的轮廓在龙心，龙身仍嵌在岩层；避免读成召唤兽或坐骑。
-- **体型**：龙身盘在山腹与山脊之间，粗如隧道，长度未知；四足抓岩，爪嵌进石阶与崖壁；无翼。头在断龙台，身体仍与山体相连，不能整条离开。
+- **叙事合同**：男主的终极形态。不是召唤物，是沈珩/陈默把自己填进锁之后，金脉长出的龙身。出现即意味着有人选择留下。分两态：战时态可昂首腾空，但下半身始终由金脉牵回山体，不出金龙山上空；锁成态四足抓山、嵌回岩层。两态都不喷火、不独立说话；不是第二条龙，也不是可操控的式神。
+- **出现方式**：序章「焚山」P05 首次出现，P05 是战时态，P06 自爆后转锁成态。首次出现必须同时给两个信息——人的轮廓在龙心，龙身仍连着山体；避免读成召唤兽或坐骑。之后只在最后一战/填锁时再次出现。
+- **体型**：锁成态龙身盘在山腹与山脊之间，粗如隧道，长度未知；四足抓岩，爪嵌进石阶与崖壁，无翼。战时态可整条离地，但下半身拖着数十道金脉连回断龙台与山脊，活动范围只在金龙山上空；不能整条离开金龙山。
 - **头部 / 眼**：东方龙首，长吻；龙角是裂开的金脉岩枝，地质感，不是鹿角；龙须由金屑与旧幡布条构成；琥珀金瞳带金屑；右颌一道金裂，对应沈珩的灼痕；额顶嵌白玉珩簪。表情平静、悲悯，不咆哮。
 - **身体 / 鳞**：黑灰岩层为底，金脉在鳞缝里走成血管；鳞片像含金的页岩，边缘崩口；四足五爪，爪是暗金石质；身体部分仍与崖壁熔在一起。
 - **龙心 / 人核**：胸腔内有两道背身人影——一个月白袍、一个现代夹克——都没有脸，代表同一个魂的两世；青铜镇山印悬在心口；左前足系旧红绳。
 - **配色**：旧金 `#b08d3f` / 亮金 `#c9a45a` / 墨黑 `#1b1816` / 岩灰 `#3a3530` / 骨白 `#e8e1d0` / 朱砂 `#a83a2c`。
-- **Never-change**：额顶白玉珩簪；右颌金裂；琥珀金瞳；四足抓山、无翼；龙身仍嵌岩层；心口青铜镇山印；左前足旧红绳；龙心两道无脸人影；不飞、不喷火。
+- **Never-change**：额顶白玉珩簪；右颌金裂；琥珀金瞳；四足五爪、无翼；心口青铜镇山印；左前足旧红绳；龙心两道无脸人影；不喷火、不独立说话。锁成态四足抓山、龙身嵌回岩层；战时态必须有金脉或龙尾连回山体。龙首永远是龙，不是人脸。
 - **初版偏差记录**：第一版右上格误画成「沈珩人脸 + 龙角」，已定向替换为东方龙首，其余三格不变；正篇不得把龙首画成人脸。龙身四足比例偏粗壮，正篇按设定稿，不改回无足蛇形。
-- **叙事状态**：终极形态尚未在正篇出现；只在最后一战/填锁时出现。谁填锁、填完还能不能回来，留给分镜决定。
+- **叙事状态**：序章 P05–P06 首次出现；自爆后转为锁成态，龙形留在断龙山体。谁填锁、填完还能不能回来，留给正篇。
 
 ## Location anchor
 
@@ -193,6 +202,7 @@ Creature-sheet layout (for non-human anchors): vertical sheet, full-body on the 
 - **山门镇**：青石板旧街与物流园贴在一起；「昭记」纸扎铺门口一盏不灭的纸灯；夜里能听见货车和虫鸣。不要画成纯古镇。
 - **千阶**：旧石阶没入雾，一侧无栏杆；景区的锈铁门和褪色导览牌只是表层；锁动时灯会自己亮。脚步声是主要音效。
 - **断龙台**：破环石台，裂缝里有金光；烧化的符布嵌在石里；没有祭坛装饰。这里是沈珩死的地方，也是锁眼。
+- **恶龙潭**：断龙台下方的黑水石潭，石岸有断链与烧化符布；赤蟒被封在水底，水面常年不流。不要画成普通的山间水潭或许愿池。
 - **太清宫**：山脊废墟，正殿锁着，侧殿是值班室；灯房的地砖下有旧灯油痕。不要画成香火旺盛的大庙。
 - **山下城**：物流园、24 小时便利店、湿沥青路面、冷青与钠黄；手机屏幕和订单界面空白。不要画真实品牌。
 - **山腹金龙**：金脉在岩层里走出的龙形；只在裂缝、湿岩、灯焰倒影里出现；不发光的时候像一条普通的矿脉。
@@ -203,7 +213,7 @@ Creature-sheet layout (for non-human anchors): vertical sheet, full-body on the 
 2. **Multi-character panel**：one reference per character, labeled by order. Keep each character's never-change list in the prompt. Respect the 3-reference limit; build a lineup composite if a panel needs more.
 3. **Reincarnation pair（沈珩 / 陈默）**：pass both sheets and state “same soul, same brow, jaw and eye shape; different era, hair, grooming, posture and scars; not twins, never identical clothing”. 陈默 never gets 沈珩's burn scar, long hair or robes.
 4. **Sister pair（苏昭 / 苏雀）**：same sect, not the same person. 苏昭 has the white streak at her right temple, a low bun and a long coat; 苏雀 has fully black hair in a high ponytail, a red sparrow clip, a cropped jacket and no white streak. Pass both sheets separately and state “do not copy the white streak or the long coat onto 苏雀”.
-5. **Ultimate form（金龙 / `jin-long`）**：pass the form sheet plus the mountain anchor and the male lead's sheet. State “this is the lock, not a summoned dragon; four limbs anchor into rock; no wings, no flight, no fire; the dragon head is a dragon, never a human face”. Use the two faceless back-view silhouettes for the human core.
+5. **Ultimate form（金龙 / `jin-long`）**：pass the form sheet plus the mountain anchor and the male lead's sheet. State “this is the lock, not a summoned dragon; in the ancient battle it may rear into the air but must stay tethered to the mountain by gold veins; no wings, no free flight, no fire; the dragon head is a dragon, never a human face”. Use the two faceless back-view silhouettes for the human core.
 6. **New characters**：generate a sheet in the same layout, add them here, then they become canon.
 7. **One pass per asset.** No regeneration loops. If the result deviates, record the deviation in the page notes and move on.
 8. **Before 定妆（仅新角色）**：only silhouettes, back views, hands, props and atmosphere. No canon faces for characters that do not yet have a sheet.
@@ -213,6 +223,6 @@ Creature-sheet layout (for non-human anchors): vertical sheet, full-body on the 
 
 - Character slugs: lowercase kebab-case, e.g. `shen-heng`, `chen-mo`, `su-zhao`, `su-que`, `jin-long`（终极形态）.
 - Creature slugs: `chi-mang`; sheets live in `assets/creatures/`.
-- Location slugs: `jinlong-shan`, `shanmen-town`, `duanlong-terrace`, `taiqing-palace`.
+- Location slugs: `jinlong-shan`, `shanmen-town`, `duanlong-terrace`, `e-long-tan`, `taiqing-palace`.
 - Chinese name + English name in the docs and site.
 - Chapter folders: `comic/chNN/`; pages: `pNN.png` + `pNN.md` (two digits, continuous across chapters as the story grows).
