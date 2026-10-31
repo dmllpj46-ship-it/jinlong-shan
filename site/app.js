@@ -1,48 +1,48 @@
 const RAW = "https://raw.githubusercontent.com/dmllpj46-ship-it/jinlong-shan/main";
 const CDN = "https://cdn.jsdelivr.net/gh/dmllpj46-ship-it/jinlong-shan@main";
 
-// 角色位：定妆前只锁定叙事位置。定妆后把真实角色写进 cast，并移除对应的 slot。
-const slots = [
+// 已定妆角色：{ slug, name, en, role, anchor, sheet }
+const cast = [
   {
-    no: "01",
-    mark: "壹",
-    label: "主角位",
-    en: "Lead",
-    role: "拾鳞人 · 持鳞者",
-    brief: "第一个听见龙心跳的人。为什么是他，为什么是这枚鳞，定妆时一起决定。",
-    state: "定妆中",
+    group: "五百年前 · 太清宫",
+    members: [
+      {
+        slug: "shen-heng",
+        name: "沈珩",
+        en: "Shen Heng · 道号玄珩",
+        role: "太清宫末代大法师 · 燃魂者",
+        anchor: "二十七岁，在断龙台点燃自己的魂魄，把赤蟒压回山底。金龙锁的最后一环。",
+        sheet: "assets/characters/shen-heng.png",
+      },
+    ],
   },
   {
-    no: "02",
-    mark: "贰",
-    label: "同行位",
-    en: "Partner",
-    role: "守山一脉，或叛出金鳞司的人",
-    brief: "懂山的规矩，和主角在「送回还是使用」上正面冲突。",
-    state: "定妆中",
+    group: "现在 · 山下城",
+    members: [
+      {
+        slug: "chen-mo",
+        name: "陈默",
+        en: "Chen Mo",
+        role: "普通打工人 · 夜里跑滴滴，周末送外卖",
+        anchor: "沈珩的第五世。二十八岁，不记得前世，只想把这个月过完。",
+        sheet: "assets/characters/chen-mo.png",
+      },
+    ],
   },
   {
-    no: "03",
-    mark: "叁",
-    label: "追兵位",
-    en: "Rival",
-    role: "金鳞司执鳞官",
-    brief: "追回逆鳞的人。相信控制换鳞才能保住山下的人，不是纯恶。",
-    state: "定妆中",
-  },
-  {
-    no: "04",
-    mark: "肆",
-    label: "引路位",
-    en: "Guide",
-    role: "无面香客或老拾鳞人",
-    brief: "带路收费，知道龙心在哪，已经丢了一半名字。要上山，先交出名字。",
-    state: "定妆中",
+    group: "守山 · 山门镇",
+    members: [
+      {
+        slug: "su-zhao",
+        name: "苏昭",
+        en: "Su Zhao",
+        role: "守山人 · 沈珩的师妹与恋人",
+        anchor: "被守山印钉在山上五百年。不老，不死，也走不出山门三十里。",
+        sheet: "assets/characters/su-zhao.png",
+      },
+    ],
   },
 ];
-
-// 定妆后的角色：{ slug, name, en, role, anchor, group }
-const cast = [];
 
 // 成图后的页面：{ n, ch, slug, title, lines: [[who, say]], note }
 const pages = [];
@@ -51,85 +51,28 @@ const repoUrl = (path) => `${RAW}/${path}`;
 
 function withFallback(img, path) {
   img.dataset.path = path;
+  img.dataset.step = "0";
   if (img.dataset.fbBound) return;
   img.dataset.fbBound = "1";
   img.addEventListener("error", () => {
-    if (img.dataset.fallback) return;
-    img.dataset.fallback = "1";
-    img.src = `${CDN}/${img.dataset.path}`;
+    const current = img.dataset.path;
+    const step = Number(img.dataset.step || 0);
+    if (step === 0) {
+      img.dataset.step = "1";
+      img.src = `${CDN}/${current}`;
+    } else if (step === 1) {
+      img.dataset.step = "2";
+      img.src = `../${current}`;
+    }
   });
-}
-
-function renderSlots() {
-  const root = document.getElementById("cast-root");
-  const grid = document.createElement("div");
-  grid.className = "slot-grid";
-
-  slots.forEach((slot) => {
-    const card = document.createElement("article");
-    card.className = "slot-card";
-
-    const figure = document.createElement("div");
-    figure.className = "slot-figure";
-    figure.setAttribute("aria-hidden", "true");
-    const mark = document.createElement("span");
-    mark.className = "slot-mark";
-    mark.textContent = slot.mark;
-    const state = document.createElement("span");
-    state.className = "slot-state";
-    state.textContent = slot.state;
-    figure.append(mark, state);
-    card.appendChild(figure);
-
-    const body = document.createElement("div");
-    body.className = "slot-body";
-
-    const idx = document.createElement("p");
-    idx.className = "idx";
-    idx.textContent = slot.no;
-
-    const name = document.createElement("h3");
-    name.className = "name";
-    name.textContent = slot.label;
-
-    const en = document.createElement("p");
-    en.className = "en";
-    en.textContent = slot.en;
-
-    const role = document.createElement("p");
-    role.className = "role";
-    role.textContent = slot.role;
-
-    const brief = document.createElement("p");
-    brief.className = "anchor";
-    brief.textContent = slot.brief;
-
-    body.append(idx, name, en, role, brief);
-    card.appendChild(body);
-    grid.appendChild(card);
-  });
-
-  root.appendChild(grid);
 }
 
 function renderCast() {
   const root = document.getElementById("cast-root");
-  if (cast.length === 0) {
-    renderSlots();
-    return;
-  }
+  const grid = document.createElement("div");
+  grid.className = "slot-grid";
 
   cast.forEach((group) => {
-    const section = document.createElement("div");
-    section.className = "cast-group";
-
-    const heading = document.createElement("h3");
-    heading.textContent = group.group;
-    section.appendChild(heading);
-
-    const grid = document.createElement("div");
-    grid.className = "slot-grid";
-
     group.members.forEach((m) => {
       const card = document.createElement("article");
       card.className = "slot-card";
@@ -149,6 +92,10 @@ function renderCast() {
       const body = document.createElement("div");
       body.className = "slot-body";
 
+      const era = document.createElement("p");
+      era.className = "era";
+      era.textContent = group.group;
+
       const name = document.createElement("h3");
       name.className = "name";
       name.textContent = m.name;
@@ -165,20 +112,20 @@ function renderCast() {
       anchor.className = "anchor";
       anchor.textContent = m.anchor;
 
-      body.append(name, en, role, anchor);
+      body.append(era, name, en, role, anchor);
       card.appendChild(body);
       grid.appendChild(card);
     });
-
-    section.appendChild(grid);
-    root.appendChild(section);
   });
+
+  root.appendChild(grid);
 }
 
 function castGallery() {
   return cast.flatMap((group) =>
     group.members.map((m) => ({
-      path: `assets/characters/${m.slug}.png`,
+      slug: m.slug,
+      path: m.sheet,
       alt: `${m.name} 角色设定稿`,
       cap: `${m.name} · ${m.en}`,
     }))
@@ -186,7 +133,7 @@ function castGallery() {
 }
 
 function castIndex(slug) {
-  return castGallery().findIndex((item) => item.path.includes(`/${slug}.png`));
+  return castGallery().findIndex((item) => item.slug === slug);
 }
 
 const pageCh = (page) => page.ch || "ch01";
@@ -199,8 +146,8 @@ function renderEmptyPages(root) {
   box.innerHTML = `
     <p class="empty-kicker">Not yet drawn</p>
     <h3>第一话尚未开画</h3>
-    <p>流程：主角定妆 → 四格分镜脚本 → 逐页成图 → 统一上字。角色定妆图进入仓库后，这里会逐页更新。</p>
-    <a href="#cast">先看角色位 →</a>`;
+    <p>角色与金龙山已经定妆。下一步：四格分镜 → 逐页成图 → 统一上字。第一页成图后，这里会逐页更新。</p>
+    <a href="#cast">先看角色 →</a>`;
   root.appendChild(box);
 }
 
@@ -309,7 +256,6 @@ function step(delta) {
 
 function updateLightbox() {
   const item = gallery[current];
-  lbImg.dataset.fallback = "";
   withFallback(lbImg, item.path);
   lbImg.src = repoUrl(item.path);
   lbImg.alt = item.alt;
