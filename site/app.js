@@ -71,7 +71,7 @@ const cast = [
         name: "金龙",
         en: "Jin Long · 终极形态",
         role: "男主终极形态 · 人化锁",
-        anchor: "不是召唤出来的龙。是沈珩/陈默把自己填进锁后，金脉长出的龙身；四足抓山，不飞，不离山。",
+        anchor: "不是召唤出来的龙。是沈珩/陈默把自己填进锁后，金脉长出的龙身。锁成态四足抓山、嵌回岩层；战时态可腾空作战，但始终由金脉牵回山体，不出金龙山上空。",
         sheet: "assets/characters/jin-long.png",
       },
     ],
@@ -79,7 +79,48 @@ const cast = [
 ];
 
 // 成图后的页面：{ n, ch, slug, title, lines: [[who, say]], note }
-const pages = [];
+const pages = [
+  {
+    n: 1, ch: "ch00", slug: "p01", title: "潭动",
+    lines: [["师父", "退到阶下。"], ["沈珩", "锁断了。"], ["苏昭", "来不及了。"]],
+    note: "五百年前的夜。赤蟒只给巨口、锈铁红鳞与一只竖瞳；山下不许出现现代城市灯海。",
+  },
+  {
+    n: 2, ch: "ch00", slug: "p02", title: "第一排",
+    lines: [["门人", "砍不动——"], ["苏昭", "别硬接！"], ["沈珩", "散开！走阶下！"]],
+    note: "每格只讲一个动作：横扫、溅火星、架首、回头。苏昭全页纯黑发，没有右鬓白发。",
+  },
+  {
+    n: 3, ch: "ch00", slug: "p03", title: "师父",
+    lines: [["师父", "镇住它。"], ["师父（残音）", "珩儿，锁在你身上。"], ["沈珩", "师父——！"], ["苏昭", "师兄！"]],
+    note: "师父不露正脸，只给背影、手、宽袖与铜铃；被吞用金尘与碎符表现，不给血肉。",
+  },
+  {
+    n: 4, ch: "ch00", slug: "p04", title: "燃魂",
+    lines: [["苏昭", "你答应过我。"], ["沈珩", "昭昭，替我看住山。"], ["苏昭", "沈珩——"]],
+    note: "底部通栏大 splash 是本页落点：魂焰自胸口烧起，沿手臂爬到指尖，光柱冲开云层。",
+  },
+  {
+    n: 5, ch: "ch00", slug: "p05", title: "金龙",
+    lines: [["沈珩（心声）", "这一次，换我守。"], ["苏昭", "师兄——！"]],
+    note: "金龙战时态：可腾空，但下半身始终由数十道金脉牵回山体，不出金龙山上空；每格只有一个龙头。",
+  },
+  {
+    n: 6, ch: "ch00", slug: "p06", title: "九裂",
+    lines: [["沈珩（残音）", "九块……别都等我。"], ["苏昭（远处）", "不——"]],
+    note: "全篇最大开。自爆只给光、影、金雨与山体剪影，是暴力尺度的上限；九块碎片可数，最大的一块落向山脚村落。",
+  },
+  {
+    n: 7, ch: "ch00", slug: "p07", title: "封印",
+    lines: [["苏昭", "封住它。"], ["门人", "师姐，你的印——"], ["苏昭", "我知道。"]],
+    note: "赤蟒只露首与一截断身；守山印亮在胸口，血从嘴角走；引魂灯全页熄灭。",
+  },
+  {
+    n: 8, ch: "ch00", slug: "p08", title: "灯",
+    lines: [["门人", "师姐，下山吧。"], ["苏昭", "我走不了。"], ["苏昭", "我等你。"]],
+    note: "第 4 格是时间叠化，不是两个空间：坐姿与灯位与第 3 格一致，白发只在现代那一格出现。",
+  },
+];
 
 const repoUrl = (path) => `${RAW}/${path}`;
 
@@ -171,8 +212,8 @@ function castIndex(slug) {
 }
 
 const pageCh = (page) => page.ch || "ch01";
-const pageLabel = (page) => (pageCh(page) === "ch02" ? "第二话" : "第一话");
-const pagePath = (page) => `comic/${pageCh(page)}/${page.slug}.png`;
+const pageLabel = (page) => ({ ch00: "序章", ch02: "第二话" }[pageCh(page)] || "第一话");
+const pagePath = (page) => `comic/${pageCh(page)}/${page.slug}.jpg`;
 
 function renderEmptyPages(root) {
   const box = document.createElement("div");
@@ -180,8 +221,8 @@ function renderEmptyPages(root) {
   box.innerHTML = `
     <p class="empty-kicker">Not yet drawn</p>
     <h3>第一话尚未开画</h3>
-    <p>角色、赤蟒、金龙与金龙山已经定妆。下一步：四格分镜 → 逐页成图 → 统一上字。第一页成图后，这里会逐页更新。</p>
-    <a href="#cast">先看角色 →</a>`;
+    <p>序章「焚山」八页已经成图，见上一章。现代线的分镜正在排：四格分镜 → 逐页成图 → 统一上字。第一页成图后，这里会逐页更新。</p>
+    <a href="#prologue">先读序章 →</a>`;
   root.appendChild(box);
 }
 
@@ -221,7 +262,7 @@ function renderPages(rootId, chapter) {
     img.alt = `${pageLabel(page)} ${page.title}，第 ${page.n} 页`;
     img.loading = index === 0 ? "eager" : "lazy";
     figure.appendChild(img);
-    figure.addEventListener("click", () => openLightbox(index));
+    figure.addEventListener("click", () => openLightbox(pages.indexOf(page)));
     article.appendChild(figure);
 
     const block = document.createElement("div");
@@ -309,4 +350,5 @@ document.addEventListener("keydown", (e) => {
 });
 
 renderCast();
+renderPages("prologue-root", "ch00");
 renderPages("pages-root", "ch01");
