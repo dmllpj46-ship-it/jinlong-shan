@@ -29,6 +29,8 @@ A Japanese-manga-style Eastern fantasy comic, working title **金龙山 / JINLON
     - The fight's climax page gets the largest single panel in the chapter (ch00 P06: narrow band + full-width splash + two bottom panels).
     - The dominant panel changes position from page to page (top band → middle pair → bottom band → side column) so consecutive fight pages never feel the same.
     - Write that page's panel sizes into the script's 绘制备注 before generating, and state the row/column grammar in the prompt ("three rows: full-width band / two panels side by side / full-width band"). Image models add a fifth panel when the geometry leaves an open region — use tiling layouts, not L-shapes.
+    - 版式必须写成纯几何描述：先声明每一行占页高的百分比与每行的格数，再声明「斜切格线只存在于第 N 行内部，不得上下越行」，最后逐格点名「本格只有 X / 本格没有 Y」。只写「four panels」不够——室内多人页最容易多切出一格窄条。
+    - 每次成图先查三件事：格数、同一角色是否被复制两份（含手里的道具换样）、参考图串味（定妆稿站姿、他人特征）。任一不合格才定向重roll一次。
 
 ## Image workflow
 
@@ -43,7 +45,7 @@ A Japanese-manga-style Eastern fantasy comic, working title **金龙山 / JINLON
 
 ## Character slugs
 
-Locked: `shen-heng`（前世）, `chen-mo`（今生）, `su-zhao`（女主）, `su-que`（女主师妹）, `jin-long`（男主终极形态）. Creature: `chi-mang`（赤蟒）. Location anchor: `jinlong-shan`. Episode supporting roles, locked but still unnamed: `lao-fu`（老妇）, `nv-hai`（初中女生）.
+Locked: `shen-heng`（前世）, `chen-mo`（今生）, `su-zhao`（女主）, `su-que`（女主师妹）, `jin-long`（男主终极形态）. Creature: `chi-mang`（赤蟒）. Location anchors: `jinlong-shan`（金龙山）, `bie-shu`（山边别墅）. Episode supporting roles, locked but still unnamed: `lao-fu`（老妇）, `nv-hai`（初中女生）.
 
 Supporting roles are not named yet. Add a slot only when the story needs one, and lock it with a sheet before it gets a canon face.
 
@@ -54,6 +56,8 @@ Supporting roles are not named yet. Add a slot only when the story needs one, an
 `shifu` is an undesignated supporting role: the Taiqing Palace master, 沈珩 and 苏昭's teacher. He dies in the prologue. Only back views, hands, wide sleeves, the bronze bell and half a sword may be drawn; never a canon face and never an invented name. 苏昭's past look uses her locked sheet for face and props but with no white streak, black hair and sect robes.
 
 `jinlong-shan` is a location anchor: a wide scene sheet, not a character sheet. Its never-change list binds every frame that shows the mountain.
+
+`bie-shu` is a location anchor too: 苏昭的山边别墅, the recurring interior from ch01 P09 onward. Pass it whenever the villa's outside is in frame; the inside is bound by the 室内 clause in the design bible plus ch01 P10–P11.
 
 ## Writing tone
 
