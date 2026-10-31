@@ -19,11 +19,12 @@ A Japanese-manga-style Eastern fantasy comic, working title **金龙山 / JINLON
 9. **Story canon lives in `assets/characters/design-bible.md` and `README.md`.** New plot facts, faction names or world rules need explicit user approval before they are written as canon.
 10. **沈珩 and 陈默 are one soul, not twins.** When they appear together, pass both sheets. Keep brow, jaw and eye shape; change era, hair, grooming, posture and scars. 陈默 never gets 沈珩's burn scar, long hair or robes.
 11. **苏昭 and 苏雀 are not the same person.** 苏昭 has the white streak at her right temple, a low bun, a long coat and 断水. 苏雀 has fully black hair in a high ponytail, a red sparrow clip, a cropped jacket and silver scissors. Generating 苏雀 must never import the white streak, the long coat, the paper-bone lantern or the sword.
+12. **金龙 is the male lead's ultimate form, not a second dragon.** 沈珩/陈默 become the lock itself; the golden vein grows a body around them. Four limbs anchor into rock, no wings, no flight, no leaving the mountain, no fire, no independent speech. The dragon head is a true Eastern dragon head — never the human face. The human identity lives in the two faceless back-view silhouettes in the chest core, the jade hairpin, the bronze seal, the red cord and the gold fissure on the right jaw. Outside this form, the dragon may only appear as vein patterns, cracks, lamp light or reflections.
 
 ## Image workflow
 
 - Tool: `ImageGen`. Use character sheets as identity references; label them in the prompt (“the first image is the identity reference; keep face, hair, costume and palette unchanged”).
-- New character sheets: 1024x1536, same reference-sheet layout as the design bible specifies. Creature sheets: also 1024x1536, full body plus head/scale/sealed-context detail panels.
+- New character sheets: 1024x1536, same reference-sheet layout as the design bible specifies. Creature sheets: also 1024x1536, full body plus head/scale/sealed-context detail panels. The 金龙 ultimate-form sheet uses the creature-style four-panel layout and passes the male lead sheet plus the mountain anchor.
 - Comic pages: 1024x1536 portrait (or 1536x1024 for wide establishing shots), four-panel layout, same ink/screentone style.
 - Style continuity: when drawing page N, pass page N−1 as an additional reference image to lock linework, screentone density and palette.
 - Save to `assets/characters/<slug>.png` for character sheets, `assets/creatures/<slug>.png` for creature sheets, `assets/locations/<slug>.png` for location anchors, `comic/chNN/pNN.png` for pages (2-digit chapter, 2-digit page). `ch01` = chapter 1.
@@ -33,11 +34,13 @@ A Japanese-manga-style Eastern fantasy comic, working title **金龙山 / JINLON
 
 ## Character slugs
 
-Locked: `shen-heng`（前世）, `chen-mo`（今生）, `su-zhao`（女主）, `su-que`（女主师妹）. Creature: `chi-mang`（赤蟒）. Location anchor: `jinlong-shan`.
+Locked: `shen-heng`（前世）, `chen-mo`（今生）, `su-zhao`（女主）, `su-que`（女主师妹）, `jin-long`（男主终极形态）. Creature: `chi-mang`（赤蟒）. Location anchor: `jinlong-shan`.
 
 Supporting roles are not named yet. Add a slot only when the story needs one, and lock it with a sheet before it gets a canon face.
 
 `chi-mang` is a creature anchor, not a human. The full body is allowed only on its design sheet; story pages reveal fragments until the story's late act.
+
+`jin-long` is a form anchor, not a separate character. It is drawn only for the late-act transformation; in every other frame the dragon stays as gold vein, crack, lamp light or reflection.
 
 `jinlong-shan` is a location anchor: a wide scene sheet, not a character sheet. Its never-change list binds every frame that shows the mountain.
 

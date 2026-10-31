@@ -7,11 +7,13 @@ This file is the canon. Every future page, cover or promo image must match the s
 - v1 · 世界观、两位主角、金龙山场景锚点已定妆。
 - v1.1 · 赤蟒（`chi-mang`）怪物定妆。
 - v1.2 · 苏雀（`su-que`）定妆：苏昭的师妹，纸替身续命，活动于现代。
+- v1.3 · 金龙（`jin-long`）定妆：男主的终极形态，人化锁，不是召唤物。
 - Canon sheets:
   - `assets/characters/shen-heng.png`
   - `assets/characters/chen-mo.png`
   - `assets/characters/su-zhao.png`
   - `assets/characters/su-que.png`
+  - `assets/characters/jin-long.png`
   - `assets/creatures/chi-mang.png`
   - `assets/locations/jinlong-shan.png`
 - Thumbnails: `assets/{characters,creatures}/thumbs/<slug>.jpg`（4:5，仅用于阅读站，不参与设定判断）.
@@ -46,9 +48,9 @@ Creature-sheet layout (for non-human anchors): vertical sheet, full-body on the 
 
 金龙山用一条金脉锁住赤蟒；五百年前锁断了，大法师沈珩把自己填了进去。
 
-### 九条硬规则
+### 十条硬规则
 
-1. **金龙是锁，不是活龙。** 山腹金脉在岩层里走成一条龙，是封印健康时的形状。金亮则锁稳，金暗则蟒动。龙形只允许出现在岩层、裂纹、灯火与倒影里，禁止会飞、会说话、有实体的龙。
+1. **金龙首先是锁，不是自由的活龙。** 山腹金脉在岩层里走成一条龙，是封印健康时的形状。金亮则锁稳，金暗则蟒动。平时龙形只允许出现在岩层、裂纹、灯火与倒影里；唯一的实体龙形是男主的终极形态，出现即意味着有人在填锁。
 2. **赤蟒吃地脉。** 它被锁在山腹，以贪念与梦为缝。它不直接说话，只通过金屑、耳鸣、过亮的金色与人的发财梦渗透。
 3. **燃魂不可逆。** 太清宫禁术，以魂魄为引。沈珩在断龙台用过一次，魂碎成数缕，转生不完整；这也是他每一世都记不起来的原因。
 4. **守山印是保护也是钉子。** 沈珩自爆前把一半守山印打进苏昭体内。她因此不老、不死，也走不出山门三十里。她无法下山找他，只能等他上山。
@@ -57,6 +59,7 @@ Creature-sheet layout (for non-human anchors): vertical sheet, full-body on the 
 7. **金脉是现代人眼里的矿。** 采金、修路、打隧道都在拆锁。现代线的反派不需要懂法术，只需要一份工程进度表。
 8. **每百年一次，第五百年最危险。** 魂缕归来与封印松动同步发生。陈默是第五个「他」，也是五百年来最完整的一个。
 9. **复活要有人填锁。** 灯亮、魂全、印合，只是把人叫回来；锁还要有人守。苏昭等了五百年，等的不是一个奇迹，是一个选择：让陈默活，还是让山稳。
+10. **金龙是男主的终极形态，不是第二条龙。** 沈珩/陈默把自己填进锁，金脉才长出龙身。它不飞、不离山、不喷火、不独立说话；不是可召唤的宠物，也不是赤蟒那样的独立怪物。金龙出现，就是有人选择留下。
 
 ### 势力
 
@@ -74,12 +77,12 @@ Creature-sheet layout (for non-human anchors): vertical sheet, full-body on the 
 - **断龙台。** 山腰的破环石台，金龙锁的锁眼，也是沈珩自爆的地方。石缝里嵌着烧化的符布，金光是从裂缝里透出来的，不是灯。
 - **太清宫。** 山脊上的废墟，现在是文保单位。正殿锁着，侧殿改成了值班室；灯房的地砖下面还有五百年前的灯油痕。
 - **山下城。** 现代城市。陈默租在物流园附近，楼下有 24 小时便利店；夜里跑滴滴，周末送外卖。城市灯光是冷青和钠黄，和山上的金完全不同。
-- **山腹金龙。** 金脉在岩层里走出的龙形。只在断龙台裂缝、雨后湿岩、灯焰倒影里出现。它不是生物，不会动，但会随着锁的强弱变亮变暗。
+- **山腹金龙。** 金脉在岩层里走出的龙形。只在断龙台裂缝、雨后湿岩、灯焰倒影里出现。它不是生物，不会动，但会随着锁的强弱变亮变暗。男主的终极形态会让这条龙形短暂成为实体，但仍锁在山里。
 - **赤蟒渊。** 山腹更深处，只有声音、热气、金屑和一片巨大的影子。全貌留到故事后段。
 
 ### 画风与叙事禁令
 
-- **金龙形态**：只能是金脉、岩层裂纹、灯火与倒影里的龙形。禁止西式有翼巨龙、恐龙、蜥蜴人，禁止把山画成一条会飞的活龙。
+- **金龙形态**：平时只能是金脉、岩层裂纹、灯火与倒影里的龙形，禁止会飞的活龙。唯一的实体龙形是男主的终极形态 `jin-long`：人化锁，四足抓山，龙身由岩层与金脉构成，不离山、不飞、不喷火、不独立说话。禁止西式有翼巨龙、恐龙、蜥蜴人。
 - **赤蟒形态**：东方巨蟒，无翼、无角、无四肢，鳞如锈铁。完整蟒身只允许出现在设定稿 `assets/creatures/chi-mang.png`；正篇前段只给一只竖瞳眼、鳞、金屑、山体下的阴影与声音，全貌留到故事后段。
 - **金色预算**：一页里饱和金只允许出现在金脉、引魂灯、红绳与龙气四处。现代城市灯光用冷青与钠黄；官服、铠甲、首饰用低饱和黄铜或土金。
 - **现代场景**：同样用墨线、网点与赛璐璐，不画照片感、不画 3D。手机屏幕、订单界面、路牌一律空白或不可读；禁止真实品牌 logo（滴滴、外卖平台等只用通用图形）。
@@ -158,6 +161,20 @@ Creature-sheet layout (for non-human anchors): vertical sheet, full-body on the 
 - **Never-change**：竖瞳独眼与石粉薄膜；锈铁红鳞与黑红岩层鳞缝；骨白后弯牙；腹下根须；颈后断裂金钉；无翼、无角、无四肢。
 - **初版偏差记录**：封印剖面格只画出金链与断钉，金龙形矿脉不够明显；正篇涉及锁眼时以「岩层里的龙形金脉」为准，不据设定稿改世界规则。头部略偏鳄相，正篇画得更接近蟒：吻部更长更窄，牙更密。
 
+### `jin-long` — 金龙（男主终极形态）
+
+- **文件**：`assets/characters/jin-long.png`，1024x1536；缩略图 `assets/characters/thumbs/jin-long.jpg`（4:5，仅站内用）。
+- **叙事合同**：男主的终极形态。不是召唤物，是沈珩/陈默把自己填进锁之后，金脉长出的龙身。出现即意味着有人选择留下。不飞、不离山、不喷火、不独立说话；不是第二条龙，也不是可操控的式神。
+- **出现方式**：平时只有山腹金脉的龙形。终极形态留到故事后段，首次出现必须同时给两个信息——人的轮廓在龙心，龙身仍嵌在岩层；避免读成召唤兽或坐骑。
+- **体型**：龙身盘在山腹与山脊之间，粗如隧道，长度未知；四足抓岩，爪嵌进石阶与崖壁；无翼。头在断龙台，身体仍与山体相连，不能整条离开。
+- **头部 / 眼**：东方龙首，长吻；龙角是裂开的金脉岩枝，地质感，不是鹿角；龙须由金屑与旧幡布条构成；琥珀金瞳带金屑；右颌一道金裂，对应沈珩的灼痕；额顶嵌白玉珩簪。表情平静、悲悯，不咆哮。
+- **身体 / 鳞**：黑灰岩层为底，金脉在鳞缝里走成血管；鳞片像含金的页岩，边缘崩口；四足五爪，爪是暗金石质；身体部分仍与崖壁熔在一起。
+- **龙心 / 人核**：胸腔内有两道背身人影——一个月白袍、一个现代夹克——都没有脸，代表同一个魂的两世；青铜镇山印悬在心口；左前足系旧红绳。
+- **配色**：旧金 `#b08d3f` / 亮金 `#c9a45a` / 墨黑 `#1b1816` / 岩灰 `#3a3530` / 骨白 `#e8e1d0` / 朱砂 `#a83a2c`。
+- **Never-change**：额顶白玉珩簪；右颌金裂；琥珀金瞳；四足抓山、无翼；龙身仍嵌岩层；心口青铜镇山印；左前足旧红绳；龙心两道无脸人影；不飞、不喷火。
+- **初版偏差记录**：第一版右上格误画成「沈珩人脸 + 龙角」，已定向替换为东方龙首，其余三格不变；正篇不得把龙首画成人脸。龙身四足比例偏粗壮，正篇按设定稿，不改回无足蛇形。
+- **叙事状态**：终极形态尚未在正篇出现；只在最后一战/填锁时出现。谁填锁、填完还能不能回来，留给分镜决定。
+
 ## Location anchor
 
 ### `jinlong-shan` — 金龙山（场景定妆）
@@ -186,14 +203,15 @@ Creature-sheet layout (for non-human anchors): vertical sheet, full-body on the 
 2. **Multi-character panel**：one reference per character, labeled by order. Keep each character's never-change list in the prompt. Respect the 3-reference limit; build a lineup composite if a panel needs more.
 3. **Reincarnation pair（沈珩 / 陈默）**：pass both sheets and state “same soul, same brow, jaw and eye shape; different era, hair, grooming, posture and scars; not twins, never identical clothing”. 陈默 never gets 沈珩's burn scar, long hair or robes.
 4. **Sister pair（苏昭 / 苏雀）**：same sect, not the same person. 苏昭 has the white streak at her right temple, a low bun and a long coat; 苏雀 has fully black hair in a high ponytail, a red sparrow clip, a cropped jacket and no white streak. Pass both sheets separately and state “do not copy the white streak or the long coat onto 苏雀”.
-5. **New characters**：generate a sheet in the same layout, add them here, then they become canon.
-6. **One pass per asset.** No regeneration loops. If the result deviates, record the deviation in the page notes and move on.
-7. **Before 定妆（仅新角色）**：only silhouettes, back views, hands, props and atmosphere. No canon faces for characters that do not yet have a sheet.
-8. **Versioning**：never overwrite an anchor; add `slug-v2.png` and update this file.
+5. **Ultimate form（金龙 / `jin-long`）**：pass the form sheet plus the mountain anchor and the male lead's sheet. State “this is the lock, not a summoned dragon; four limbs anchor into rock; no wings, no flight, no fire; the dragon head is a dragon, never a human face”. Use the two faceless back-view silhouettes for the human core.
+6. **New characters**：generate a sheet in the same layout, add them here, then they become canon.
+7. **One pass per asset.** No regeneration loops. If the result deviates, record the deviation in the page notes and move on.
+8. **Before 定妆（仅新角色）**：only silhouettes, back views, hands, props and atmosphere. No canon faces for characters that do not yet have a sheet.
+9. **Versioning**：never overwrite an anchor; add `slug-v2.png` and update this file.
 
 ## Naming conventions
 
-- Character slugs: lowercase kebab-case, e.g. `shen-heng`, `chen-mo`, `su-zhao`, `su-que`.
+- Character slugs: lowercase kebab-case, e.g. `shen-heng`, `chen-mo`, `su-zhao`, `su-que`, `jin-long`（终极形态）.
 - Creature slugs: `chi-mang`; sheets live in `assets/creatures/`.
 - Location slugs: `jinlong-shan`, `shanmen-town`, `duanlong-terrace`, `taiqing-palace`.
 - Chinese name + English name in the docs and site.
