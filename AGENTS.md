@@ -15,9 +15,10 @@ A Japanese-manga-style Eastern fantasy comic, working title **金龙山 / JINLON
 5. **No text baked into generated images.** Lettering, sound effects and titles are added in post. Image models render text unreliably.
 6. **One generation pass per asset.** Do not loop, do not regenerate for minor taste differences. Accept the result, note deviations, move on. Token/credit budget matters here.
 7. **Don't overwrite an anchor.** Add a versioned file instead.
-8. **No canon faces for undesignated characters.** 沈珩、陈默、苏昭 are locked. Until a new character has a sheet, only silhouettes, back views, hands or atmosphere may be generated. Never invent a new canon face, name or palette and treat it as canon.
+8. **No canon faces for undesignated characters.** 沈珩、陈默、苏昭、苏雀 are locked. Until a new character has a sheet, only silhouettes, back views, hands or atmosphere may be generated. Never invent a new canon face, name or palette and treat it as canon.
 9. **Story canon lives in `assets/characters/design-bible.md` and `README.md`.** New plot facts, faction names or world rules need explicit user approval before they are written as canon.
 10. **沈珩 and 陈默 are one soul, not twins.** When they appear together, pass both sheets. Keep brow, jaw and eye shape; change era, hair, grooming, posture and scars. 陈默 never gets 沈珩's burn scar, long hair or robes.
+11. **苏昭 and 苏雀 are not the same person.** 苏昭 has the white streak at her right temple, a low bun, a long coat and 断水. 苏雀 has fully black hair in a high ponytail, a red sparrow clip, a cropped jacket and silver scissors. Generating 苏雀 must never import the white streak, the long coat, the paper-bone lantern or the sword.
 
 ## Image workflow
 
@@ -32,7 +33,7 @@ A Japanese-manga-style Eastern fantasy comic, working title **金龙山 / JINLON
 
 ## Character slugs
 
-Locked: `shen-heng`（前世）, `chen-mo`（今生）, `su-zhao`（女主）. Creature: `chi-mang`（赤蟒）. Location anchor: `jinlong-shan`.
+Locked: `shen-heng`（前世）, `chen-mo`（今生）, `su-zhao`（女主）, `su-que`（女主师妹）. Creature: `chi-mang`（赤蟒）. Location anchor: `jinlong-shan`.
 
 Supporting roles are not named yet. Add a slot only when the story needs one, and lock it with a sheet before it gets a canon face.
 

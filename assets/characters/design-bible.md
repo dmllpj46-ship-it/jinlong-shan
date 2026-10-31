@@ -6,10 +6,12 @@ This file is the canon. Every future page, cover or promo image must match the s
 
 - v1 · 世界观、两位主角、金龙山场景锚点已定妆。
 - v1.1 · 赤蟒（`chi-mang`）怪物定妆。
+- v1.2 · 苏雀（`su-que`）定妆：苏昭的师妹，纸替身续命，活动于现代。
 - Canon sheets:
   - `assets/characters/shen-heng.png`
   - `assets/characters/chen-mo.png`
   - `assets/characters/su-zhao.png`
+  - `assets/characters/su-que.png`
   - `assets/creatures/chi-mang.png`
   - `assets/locations/jinlong-shan.png`
 - Thumbnails: `assets/{characters,creatures}/thumbs/<slug>.jpg`（4:5，仅用于阅读站，不参与设定判断）.
@@ -127,6 +129,22 @@ Creature-sheet layout (for non-human anchors): vertical sheet, full-body on the 
 - **叙事状态**：第一话结尾首次登场；已知陈默是第五世，但不敢直接告诉他真相；她只剩这一世的时间。
 - **前世造型（待补）**：同脸、无白发、太清宫月白/黛青弟子袍、简单发髻、佩断水。需要闪回特写时再出 `su-zhao-past.png`。
 
+### `su-que` — 苏雀（苏昭的师妹 / 纸替身）
+
+- **文件**：`assets/characters/su-que.png`，1024x1536；缩略图 `assets/characters/thumbs/su-que.jpg`（4:5，仅站内用）。
+- **叙事合同**：太清宫最小的弟子，苏昭的师妹。锁断那夜被师父遣下山送信，回来时山门已封。她不在山上，所以没被守山印钉住；也因为没有印，她只能靠「纸替身」一具一具换到今天。现在是山下城 24 小时便利店的夜班店员，兼开一家纸扎网店「雀记」。她是苏昭唯一能出山的眼睛，也是唯一敢当面骂她的人。
+- **续命方式 / 与苏昭的关系**：纸身要苏昭灯里的灯油养着，所以她隔一阵必须回昭记；离山太远、灯油见底，指尖和下颌的纸边会发毛。每换一具纸身，她会丢一段记忆——她记得苏昭，却记不清自己为什么怕山。嘴上叫苏昭「老古董」，每月十五把新折的纸雀放在昭记门口。同门同姓，不是亲姐妹：太清宫收养的孤儿都姓苏。
+- **出现方式**：第一话先在便利店夜班场景给声音、手和纸雀，再给正脸。她是最先把陈默腕上的红绳和苏昭的灯联系到一起的人，也是把陈默往山上推的人。
+- **年龄 / 体型 / 站姿**：外表 22 岁，实际五百余岁；158 cm，瘦而有劲，站姿松，重心压在一只脚上，手常插兜；走路快，坐不住。
+- **发型 / 面部 / 眼神**：黑发高马尾，碎刘海，一侧长鬓；红色塑料雀形发夹 + 旧铜铃发圈；心形脸，上挑狐眼，琥珀棕瞳；左眼下小痣；笑露一颗虎牙；表情多，挑眉、撇嘴、坏笑。**没有白发。**
+- **标志性道具**：银剪纸剪（皮套挂胯侧）；符纸折的纸雀，眼睛一点朱砂；腰间一串空白纸符；旧铜铃；便利店钥匙串。
+- **服装剪裁与材质**：朱红短款飞行夹克（褪色抽象符纹，无可读文字），黑色高领内搭，黑色工装裤，白球鞋红鞋带，月白内衬下摆，腰侧纸符链。现代街头穿着叠一层太清宫旧物，便于跑动。
+- **纸替身细节**：右腕与下颌在近景有极淡的折纸痕；灯油不足时指尖边缘变薄、发毛。平时看不出来，不画成全身纸偶。
+- **配色**：朱橘 `#c1502e` / 墨黑 `#1b1a19` / 月白 `#e3dccb` / 旧铜 `#8a6a3c` / 纸黄 `#d9cfb8`。
+- **Never-change**：全黑高马尾与红雀发夹（无白发）；左眼下小痣；虎牙与坏笑；银剪纸剪；纸雀；朱红短夹克；腰间纸符链；右腕折纸痕。
+- **初版偏差记录**：第一版误把苏昭的白发带进右鬓，已定向修正为全黑；正篇不得再出现白发。纸替身的折纸痕在设定稿里偏淡，近景按文字补，不改版式。
+- **叙事状态**：已看过四个「他」，对陈默态度最差，当面叫他「第五个」；嘴上劝苏昭放弃，实际在城里替她盯着陈默的夜班路线。
+
 ### `chi-mang` — 赤蟒（山腹魔蟒）
 
 - **文件**：`assets/creatures/chi-mang.png`，1024x1536；缩略图 `assets/creatures/thumbs/chi-mang.jpg`（4:5，仅站内用）。
@@ -167,14 +185,15 @@ Creature-sheet layout (for non-human anchors): vertical sheet, full-body on the 
 1. **Same character, new page**：pass the matching sheet as a reference image and state “the first image is the identity and costume reference; keep face, hair, silhouette, costume and palette unchanged”. Restate the locked art direction.
 2. **Multi-character panel**：one reference per character, labeled by order. Keep each character's never-change list in the prompt. Respect the 3-reference limit; build a lineup composite if a panel needs more.
 3. **Reincarnation pair（沈珩 / 陈默）**：pass both sheets and state “same soul, same brow, jaw and eye shape; different era, hair, grooming, posture and scars; not twins, never identical clothing”. 陈默 never gets 沈珩's burn scar, long hair or robes.
-4. **New characters**：generate a sheet in the same layout, add them here, then they become canon.
-5. **One pass per asset.** No regeneration loops. If the result deviates, record the deviation in the page notes and move on.
-6. **Before 定妆（仅新角色）**：only silhouettes, back views, hands, props and atmosphere. No canon faces for characters that do not yet have a sheet.
-7. **Versioning**：never overwrite an anchor; add `slug-v2.png` and update this file.
+4. **Sister pair（苏昭 / 苏雀）**：same sect, not the same person. 苏昭 has the white streak at her right temple, a low bun and a long coat; 苏雀 has fully black hair in a high ponytail, a red sparrow clip, a cropped jacket and no white streak. Pass both sheets separately and state “do not copy the white streak or the long coat onto 苏雀”.
+5. **New characters**：generate a sheet in the same layout, add them here, then they become canon.
+6. **One pass per asset.** No regeneration loops. If the result deviates, record the deviation in the page notes and move on.
+7. **Before 定妆（仅新角色）**：only silhouettes, back views, hands, props and atmosphere. No canon faces for characters that do not yet have a sheet.
+8. **Versioning**：never overwrite an anchor; add `slug-v2.png` and update this file.
 
 ## Naming conventions
 
-- Character slugs: lowercase kebab-case, e.g. `shen-heng`, `chen-mo`, `su-zhao`.
+- Character slugs: lowercase kebab-case, e.g. `shen-heng`, `chen-mo`, `su-zhao`, `su-que`.
 - Creature slugs: `chi-mang`; sheets live in `assets/creatures/`.
 - Location slugs: `jinlong-shan`, `shanmen-town`, `duanlong-terrace`, `taiqing-palace`.
 - Chinese name + English name in the docs and site.
