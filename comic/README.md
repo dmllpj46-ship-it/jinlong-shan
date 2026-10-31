@@ -1,8 +1,8 @@
 # Comic pages
 
-Finished pages go here as `chNN/pNN.png` (2-digit chapter, 2-digit page), e.g. `ch01/p01.png`.
+Finished pages go here as `chNN/pNN.jpg` (2-digit chapter, 2-digit page), e.g. `ch01/p01.jpg`.
 
-Every page is **exactly four panels** unless the user approves another layout. Follow `assets/characters/design-bible.md` for every character and location in frame. Page notes (panel breakdown, dialogue, deviations) sit next to the image as `pNN.md`.
+格数由本页的beat决定，不固定为四格（见下方模板）。Follow `assets/characters/design-bible.md` for every character and location in frame. Page notes (panel breakdown, dialogue, deviations) sit next to the image as `pNN.md`.
 
 Page images carry no lettering; dialogue and SFX live in the `pNN.md` scripts and get added at the lettering stage.
 
@@ -35,7 +35,7 @@ Page images carry no lettering; dialogue and SFX live in the `pNN.md` scripts an
 | 4 | 山腹传来一声闷响，千阶的灯一盏盏自己亮起。苏昭说：「你终于回来了。」 | 待分镜 |
 | 5 | 陈默的手机同时弹出一条五百年前的预约记录。第一话钩子。 | 待分镜 |
 
-现代线与前世线用同一套四格。闪回页在 `pNN.md` 里标注「五百年前」，画面里不写字；读者靠服装、灯与色调辨认年代。
+现代线与前世线共用同一套版式规则。闪回页在 `pNN.md` 里标注「五百年前」，画面里不写字；读者靠服装、灯与色调辨认年代。
 
 ## 分镜脚本模板
 
@@ -44,20 +44,24 @@ Page images carry no lettering; dialogue and SFX live in the `pNN.md` scripts an
 
 **场景**：……
 
+**页旨**：这一页要让读者拿到什么信息 / 什么情绪。
+
 ## 分镜
 
-| 格 | 画面 | 台词 / 音效 |
-| --- | --- | --- |
-| 1 | …… | …… |
-| 2 | …… | …… |
-| 3 | …… | …… |
-| 4 | …… | …… |
+| 格 | 尺寸与位置 | 画面 | 台词 / 音效 |
+| --- | --- | --- | --- |
+| 1 | ……（例：顶部通栏，出血，占页高 30%） | …… | …… |
+| 2 | …… | …… | …… |
+| 3 | …… | …… | …… |
+
+行数由页旨决定，通常 3–6 格，必要时整页单格 splash。
 
 ## 绘制备注
 
+- **分格版式**：写清行/列语法（如「三行：通栏 / 双格 / 通栏」）、哪一格是主格、斜切与出血落在哪。
 - ……
 ```
 
-四格是硬约束：一页只讲一个动作或一个信息点，第四格负责落点或钩子。
+格数不是硬约束——**四格分镜已废止**（2026-10-31，等分四格读起来平）。硬约束是：一页只讲一个动作或一个信息点，最后一格负责落点或钩子。
 
-版式同样硬约束：**不做等分田字**。每页有一格"主格"（通栏横幅或纵贯满高竖格）承担情绪落点，至少一条斜切格线，至少一格出血到页边；每页的分格尺寸先写进 `pNN.md` 的绘制备注，再按备注生成。
+版式是硬约束：**不做等分田字**。每页有一格"主格"（通栏横幅或纵贯满高竖格）承担情绪落点，至少一条斜切格线，至少一格出血到页边；每页的分格尺寸先写进 `pNN.md` 的绘制备注，再按备注生成。

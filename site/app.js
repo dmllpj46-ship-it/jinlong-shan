@@ -221,7 +221,7 @@ function renderEmptyPages(root) {
   box.innerHTML = `
     <p class="empty-kicker">Not yet drawn</p>
     <h3>第一话尚未开画</h3>
-    <p>序章「焚山」八页已经成图，见上一章。现代线的分镜正在排：四格分镜 → 逐页成图 → 统一上字。第一页成图后，这里会逐页更新。</p>
+    <p>序章「焚山」八页已经成图，见上一章。现代线的分镜正在排：分镜排版 → 逐页成图 → 统一上字。第一页成图后，这里会逐页更新。</p>
     <a href="#prologue">先读序章 →</a>`;
   root.appendChild(box);
 }
