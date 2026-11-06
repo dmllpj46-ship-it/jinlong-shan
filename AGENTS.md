@@ -15,7 +15,7 @@ A Japanese-manga-style Eastern fantasy comic, working title **金龙山 / JINLON
 5. **No text baked into generated images.** Lettering, sound effects and titles are added in post. Image models render text unreliably.
 6. **One generation pass per asset.** Do not loop, do not regenerate for minor taste differences. Accept the result, note deviations, move on. Token/credit budget matters here.
 7. **Don't overwrite an anchor.** Add a versioned file instead.
-8. **No canon faces for undesignated characters.** 沈珩、陈默、苏昭、苏雀 are locked. Until a new character has a sheet, only silhouettes, back views, hands or atmosphere may be generated. Never invent a new canon face, name or palette and treat it as canon.
+8. **No canon faces for undesignated characters.** 沈珩、陈默、苏昭、苏雀、慕白 are locked. Until a new character has a sheet, only silhouettes, back views, hands or atmosphere may be generated. Never invent a new canon face, name or palette and treat it as canon.
 9. **Story canon lives in `assets/characters/design-bible.md` and `README.md`.** New plot facts, faction names or world rules need explicit user approval before they are written as canon.
 10. **沈珩 and 陈默 are one soul, not twins.** When they appear together, pass both sheets. Keep brow, jaw and eye shape; change era, hair, grooming, posture and scars. 陈默 never gets 沈珩's burn scar, long hair or robes.
 11. **苏昭 and 苏雀 are not the same person.** 苏昭 has the white streak at her right temple, a low bun, a long coat and 断水. 苏雀 has fully black hair in a high ponytail, a red sparrow clip, a cropped jacket and silver scissors. Generating 苏雀 must never import the white streak, the long coat, the paper-bone lantern or the sword.
@@ -33,12 +33,13 @@ A Japanese-manga-style Eastern fantasy comic, working title **金龙山 / JINLON
     - 同一页连续两次溢出格数，就立刻降一档格数（4→3），改用「一条贯通横线 + 一条只在带内的斜线」这种最少格线版式；本页只要保住主格、斜切与出血。
     - 每次成图先查三件事：格数、同一角色是否被复制两份（含手里的道具换样）、参考图串味（定妆稿站姿、他人特征）。任一不合格才定向重roll一次。
     - 同页有特征相近的角色时（苏昭 / 苏雀 / 陈默），提示词必须写 HAIR / CAST LOCK：逐人写死外套、发髻、白发归属，并写明「穿 X 衣服的人一定有 Y 头发」；参考图**第一位**决定特征派给谁，谁容易被抢特征就把谁的定妆稿放第一位。
+15. **慕白是民宿老板，不是道士；民宿不是苏昭的别墅。** 慕白（`mu-bai`）的外形**以 `assets/characters/mu-bai-v2.png` 为准，v1（`mu-bai.png`）保留但作废**——v1 与陈默太像，任何一页都不许再拿它当参考。他是一个 60 多岁、矮胖、像个老教授的老头：谢顶一圈花白、圆框眼镜、双下巴、厚腰软腹、约 163 cm。他的标志物只有六样：圆框眼镜、苔灰绿对襟布扣短褂、肩上的灰毛巾、腰上一串旧黄铜钥匙（含一块空白木牌）、左手木珠、掉漆蓝灰搪瓷缸。**禁止一切道士视觉语言**：无道袍、无发髻、无须发、无符纸、无罗盘、无法器、无剑、无灯、无朱砂。他的民宿（龙潭镇镇子东头，无招牌）与苏昭的山边别墅是两间房子：民宿那一页**不许出现**长桌、没糊完的纸扎竹骨、墙上空白挂轴、立着油布断水的墙角、那一排撕了标签的玻璃瓶。
 
 ## Image workflow
 
 - Tool: `ImageGen`. Use character sheets as identity references; label them in the prompt (“the first image is the identity reference; keep face, hair, costume and palette unchanged”).
 - New character sheets: 1024x1536, same reference-sheet layout as the design bible specifies. Creature sheets: also 1024x1536, full body plus head/scale/sealed-context detail panels. The 金龙 ultimate-form sheet uses the creature-style four-panel layout and passes the male lead sheet plus the mountain anchor.
-- Comic pages: 1024x1536 portrait (or 1536x1024 for wide establishing shots), four-panel layout, same ink/screentone style.
+- Comic pages: 1024x1536 portrait (or 1536x1024 for wide establishing shots), panel count per rule 4 (usually 3–6 with one dominant panel, diagonal gutters and at least one bleed; the equal 2×2 grid is retired), same ink/screentone style.
 - Style continuity: when drawing page N, pass page N−1 as an additional reference image to lock linework, screentone density and palette.
 - Save to `assets/characters/<slug>.png` for character sheets, `assets/creatures/<slug>.png` for creature sheets, `assets/locations/<slug>.png` for location anchors, `comic/chNN/pNN.jpg` for pages (2-digit chapter, 2-digit page). `ch01` = chapter 1.
 - Character sheets: 1024x1536. Location anchors: 1536x1024.
@@ -47,7 +48,7 @@ A Japanese-manga-style Eastern fantasy comic, working title **金龙山 / JINLON
 
 ## Character slugs
 
-Locked: `shen-heng`（前世）, `chen-mo`（今生）, `su-zhao`（女主）, `su-que`（女主师妹）, `jin-long`（男主终极形态）. Creature: `chi-mang`（赤蟒）. Location anchors: `jinlong-shan`（金龙山）, `bie-shu`（山边别墅）. Episode supporting roles, locked but still unnamed: `lao-fu`（老妇）, `nv-hai`（初中女生）.
+Locked: `shen-heng`（前世）, `chen-mo`（今生）, `su-zhao`（女主）, `su-que`（女主师妹）, `jin-long`（男主终极形态）, `mu-bai`（慕白，龙潭镇民宿老板；外形以 `mu-bai-v2.png` 为准，v1 作废）. Creature: `chi-mang`（赤蟒）, `bian-yi-shu`（变异鼠）. Location anchors: `jinlong-shan`（金龙山）, `bie-shu`（山边别墅）, `huo-cang`（城西货仓）. Episode supporting roles, locked but still unnamed: `lao-fu`（老妇）, `nv-hai`（初中女生）.
 
 Supporting roles are not named yet. Add a slot only when the story needs one, and lock it with a sheet before it gets a canon face.
 
@@ -65,7 +66,7 @@ Supporting roles are not named yet. Add a slot only when the story needs one, an
 
 - Story text: cinematic, terse, present tense. Chinese prose with English names/slugs in the docs where useful.
 - No lore dumps in the README; the README is a pitch, the design bible is the spec.
-- Page scripts (`pNN.md`) are production documents: scene, four-panel breakdown, dialogue/SFX, drawing notes. They are not prose chapters.
+- Page scripts (`pNN.md`) are production documents: scene, panel breakdown (count follows rule 4; sizes written into 绘制备注 before generating), dialogue/SFX, drawing notes. They are not prose chapters.
 
 ## Website
 
@@ -82,3 +83,6 @@ Supporting roles are not named yet. Add a slot only when the story needs one, an
 
 - Conventional-ish messages: `docs: ...`, `world: ...`, `art: add <character> sheet`, `comic: add ch01 p01`.
 - Commits from this machine use `test@test.com` (set locally, not globally) and the project name as author.
+
+### 校验脚本（在 `C:/Users/WaterZhong/AppData/Local/Temp/`，会话级临时目录，可能已被清）
+- `python -m http.server 8765 --bind 127.0.0.1`（仓库根）→ headless Chrome `--remote-debugging-port=9223 --user-data-dir=.../jl-chrome-profile` → `node jl-pages.mjs 9223 1440 900 "" <url>`（返回 `pages.prologue` / `pages.chapter01` / `errors` / `failed`）、`jl-cast.mjs`、`jl-anchors.mjs`。站点容器 id 是 `#prologue-root` / `#pages-root`，**不是** `#chapter01-root`。本地跑会报一条 `ERR_BLOCKED_BY_ORB`，无害（线上为 `failed: []`）。
