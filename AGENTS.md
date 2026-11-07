@@ -90,3 +90,39 @@ Supporting roles are not named yet. Add a slot only when the story needs one, an
 
 - 校验脚本放在 `C:/Users/WaterZhong/AppData/Local/Temp/`（会话级临时目录，可能已被清）：`python -m http.server 8765 --bind 127.0.0.1`（仓库根，必须从仓库根起服务）→ headless Chrome `--headless=new --remote-debugging-port=9223 --user-data-dir=.../jl-chrome-profile` → `node jl-pages.mjs 9223 1440 900 "" <url>`（返回 `pages.prologue` / `pages.chapter01` / `errors` / `failed`），另有 `jl-cast.mjs`、`jl-anchors.mjs`。站点容器 id 是 `#prologue-root` / `#pages-root`，**不是** `#chapter01-root`。本地跑会报一条 `ERR_BLOCKED_BY_ORB`，无害（线上应为 `errors: []`、`failed: []`）。
 - 站点数据改动后先做离线核对：解析 `site/app.js` 的 `cast` / `pages`，逐条确认 `sheet`、`thumbs/<slug>.jpg` 与 `comic/<ch>/<slug>.jpg` 在本地存在——缩略图路径由 `sheet` 文件名推导，改名或换版本号时必须一起改。
+
+## 已完成检查点（2026-11-07 · ch01 P65–P70 内河鱼怪段）
+
+**用户口述（已批准正典）**：「苏雀带陈默去内河抓鱼怪，行动是深夜，经过一番战斗，陈默收了轻伤，但是依然完成了任务，他的战斗力更强了。」→ 拆成 ch01 P65–P70 六页，兑现 P64 的「下周我手上有一单」。
+
+**战力推进只允许三条**（不许越界）：一次行动里能放两次线、带着伤也放得出、第一次是他自己决定放的。线只致盲/钉住半秒，**杀口永远是苏雀的剪子**；禁光柱、电弧、锁链、符纹、鞭索。
+
+### 交付状态（本段已全部完成）
+
+- 六页分镜脚本 + 六页成图全部入库：`comic/ch01/p65.md`–`p70.md`、`comic/ch01/p65.jpg`–`p70.jpg`（1024×1536，渐进 JPEG q90）。逐页参考图链、roll 史、接受的偏差、版式变更都写在各页脚本的「成图记录」节里——**要复用本页口径，读那个节，不要读这里。**
+- 变异鱼定稿：`assets/creatures/bian-yi-yu.png`（v3；v1 右下格串进狼爪、v2 右列串进狼头，均作废），缩略图 `assets/creatures/thumbs/bian-yi-yu.jpg`。
+- 正典 **v2.8**（`assets/characters/design-bible.md`）：变异鱼定妆条、内河地理与「内河河堤与浅滩」场景锚点、陈默的线画法（细旧哑光、不照明、只有致盲与钉住半秒、预算两次且页面可数）、战力三条推进、下游点第三处、次数作为唯一度量、轻伤与纱布账、画外清单。
+- `README.md` / `comic/README.md` 已同步（七十页、变异鱼行、内河行、段落 I、本段六条口径）；站点已加 n:65–70 六页与变异鱼 cast 成员，`index.html` 文案改七十页。
+
+### 本段验证过的两条提示词手法（往后继续用）
+
+- **MANDATORY CAST COUNT**：逐格写死「恰好 N 个 + 点名」，并把「谁必须在这一格里」单独强调。P67 v1 的主格没有陈默（尺度对比是命门），加这一段后 v2 一次修好。
+- **编号 HARD FIXES**：把禁止的手势、禁止的颈部/身上道具逐条点名，再把他本页的全部标志物**穷举成白名单**。P70 v1 的剪刀手与模型自创的挂绳工牌就是这么修掉的——这不是口味问题，是会污染后续页的正典问题，必须修。
+- 中带「上下叠」在本项目已被模型三次画成左右并列（P65、P66、P68）；**P70 一次成功**（近水平斜线 + 逐格点名）。要上下叠，先把中带写成两格并逐格声明「左格是 X / 右格是 Y」，或者直接接受左右并列并改脚本。
+
+### 出图通道（硬口径）
+
+- **内置 `ImageGen` 是唯一通道。** 主力通道断了（HTTP 403 / code 112 额度耗尽）就等，不换任何第三方出图 API（Agnes 等一律不用），不做逐格生成 + 本地拼图。
+- 每一页都必须把定妆稿与上一页成图**实际传进 `images`**（最多 3 张，第一位给最容易被抢特征的人）；只写「Image 1/2/3」而没传，整页会掉进暗褐厚涂写实，一律作废重出。
+
+### 工具与约定（本段沿用）
+
+- 编码脚本：`C:/Users/WaterZhong/AppData/Local/Temp/t2/enc.py`（PIL → 1024×1536 LANCZOS → progressive JPEG q90）。用法 `python enc.py <src.png> <dst.jpg>`。**下一页要当参考图，必须先编码入库。**
+- **中文文件内容一律用 `PYTHONUTF8=1 PYTHONIOENCODING=utf-8 python - <<'PYEOF'` 写入**；一次 heredoc 只写 1–2 个文件，payload 太大会触发 bash `unexpected EOF`。
+- 每页提示词开头固定 STYLE 块：`professional Japanese shonen fantasy manga illustration, crisp black ink linework, cel shading with screentone dot patterns, limited bold palette, 1990s-2000s manga poster polish, pale warm-gray paper, halftone texture; muted cinematic night palette; no photographic realism, no 3D render.`
+- 版式必须写成纯几何（逐行百分比 + 「斜线只在第 N 行内部」+ 逐格点名只有 X / 没有 Y + `TOTAL PANELS = N`）。
+- 本地校验：仓库根起 `python -m http.server 8765 --bind 127.0.0.1` → headless Chrome CDP 9223 → `node jl-pages.mjs 9223 1440 900 "" <url>`（应为 prologue 8 / chapter01 70）；`jl-cast.mjs` 同样参数；**`jl-anchors.mjs` 的签名是 `port url` 两个参数**，多传会把 URL 当端口。本地一条 `net::ERR_BLOCKED_BY_ORB` 属正常。
+
+### 下一段引线
+
+P70 留下两个没结的东西：苏雀那句「这一处离山更远」不许解释，以及「下周我手上有一单」已经兑现完，她手上该有下一单了。S 级：**内河是第三处渗出点，比黑森林更远**——苏昭那条只在心里说的判断，从此有了第二个数据点。
