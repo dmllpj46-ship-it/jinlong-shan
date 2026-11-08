@@ -37,9 +37,27 @@ A Japanese-manga-style Eastern fantasy comic, working title **金龙山 / JINLON
     - 同页有特征相近的角色时（苏昭 / 苏雀 / 陈默），提示词必须写 HAIR / CAST LOCK：逐人写死外套、发髻、白发归属，并写明「穿 X 衣服的人一定有 Y 头发」；参考图**第一位**决定特征派给谁，谁容易被抢特征就把谁的定妆稿放第一位。
 15. **慕白是民宿老板，不是道士；民宿不是苏昭的别墅。** 慕白（`mu-bai`）的外形**以 `assets/characters/mu-bai-v2.png` 为准，v1（`mu-bai.png`）保留但作废**——v1 与陈默太像，任何一页都不许再拿它当参考。他是一个 60 多岁、矮胖、像个老教授的老头：谢顶一圈花白、圆框眼镜、双下巴、厚腰软腹、约 163 cm。他的标志物只有六样：圆框眼镜、苔灰绿对襟布扣短褂、肩上的灰毛巾、腰上一串旧黄铜钥匙（含一块空白木牌）、左手木珠、掉漆蓝灰搪瓷缸。**禁止一切道士视觉语言**：无道袍、无发髻、无须发、无符纸、无罗盘、无法器、无剑、无灯、无朱砂。他的民宿（龙潭镇镇子东头，无招牌）与苏昭的山边别墅是两间房子：民宿那一页**不许出现**长桌、没糊完的纸扎竹骨、墙上空白挂轴、立着油布断水的墙角、那一排撕了标签的玻璃瓶。
 
+16. **成图验收要省 token——看一眼就判，不要逐带核对。** 每次出图只读返回的那张整图一次，**不再做「下载 → 裁三带 → 逐带 Read」** 的重流程（P71–P75 前半段是这么干的，一页多烧十几倍 token）。只有四类硬伤才值得再看细节并**作废重出**：① 格数溢出或多格 ② 同一角色被复制／手里的道具换样 ③ 画面里出现文字 ④ 参考图串味（定妆稿站姿、他人特征、画风断层）。其余（光影分布、表情幅度、手的角度、衣褶、小道具位置）一律记为偏差直接接受，**不为口味重 roll**。对应的「成图记录」也写短：参考图顺序、roll 次数、3 条以内偏差、口径核对一行。
+
+## Execution environment
+
+**This repo was built in Qoder's agent; from 2026-11-08 it continues in Doubao Work.** Canon, scripts, images and the site are untouched — only the tooling changed. Every rule above still holds; where the two environments disagree on *how* to run something, follow the Doubao Work column.
+
+| | Qoder (up to 2026-11-07) | Doubao Work (from 2026-11-08) |
+|---|---|---|
+| Image generation | `ImageGen`; `images` took a **string array of local paths** | built-in `image_gen` / `image_edit` (Seedream 5.0); `image_reference_url_list` takes **URLs only** (up to 10), so local sheets must be uploaded first to get URLs |
+| Writing Chinese text files | bash heredoc `PYTHONUTF8=1 PYTHONIOENCODING=utf-8 python - <<'PYEOF'` | no Bash — PowerShell 7 only. Use the `Write` tool, or a `.py` file run explicitly. Files a person opens need UTF-8 **with** BOM (`utf8BOM`); pwsh 7's `-Encoding utf8` has no BOM. Read with `-Raw` if line endings matter |
+| Shell paths | `cd` then relative paths | absolute paths with `-LiteralPath` on every call; shell state does not persist between calls |
+| Presenting results | — | generated images go out through `<RichMediaCard>`; repo files and links through `present_files` |
+| Unchanged | python 3.13, node 22, `wrangler` on PATH, `C:/Users/WaterZhong/AppData/Local/Temp/jl-*.mjs`, `Temp/t2/enc.py` | same |
+
+Carried over unchanged and still binding: the STYLE block, pure-geometry panel grammar, `TOTAL PANELS = N`, per-panel cast counts, HAIR / CAST LOCK, and **at most 3 reference images actually passed in, the sheet of the most steal-prone character first**. Writing “Image 1/2/3” in a prompt while attaching nothing still yields an off-style page — that page is scrapped, not re-rolled for taste.
+
+The old channel's failure signature (`HTTP 403`, `{"code":"112"}`) belongs to Qoder's `ImageGen`. The Doubao Work channel's quota limit and error signature have not been probed yet; when one appears, record it in the page's 成图记录 and stop, do not switch to a third-party image API.
+
 ## Image workflow
 
-- Tool: `ImageGen`. Use character sheets as identity references; label them in the prompt (“the first image is the identity reference; keep face, hair, costume and palette unchanged”).
+- Tool: `ImageGen` in Qoder → `image_gen` / `image_edit` in Doubao Work. Use character sheets as identity references; label them in the prompt (“the first image is the identity reference; keep face, hair, costume and palette unchanged”).
 - New character sheets: 1024x1536, same reference-sheet layout as the design bible specifies. Creature sheets: also 1024x1536, full body plus head/scale/sealed-context detail panels. The 金龙 ultimate-form sheet uses the creature-style four-panel layout and passes the male lead sheet plus the mountain anchor.
 - Comic pages: 1024x1536 portrait (or 1536x1024 for wide establishing shots), panel count per rule 4 (usually 3–6 with one dominant panel, diagonal gutters and at least one bleed; the equal 2×2 grid is retired), same ink/screentone style.
 - Style continuity: when drawing page N, pass page N−1 as an additional reference image to lock linework, screentone density and palette.
@@ -126,3 +144,32 @@ Supporting roles are not named yet. Add a slot only when the story needs one, an
 ### 下一段引线
 
 P70 留下两个没结的东西：苏雀那句「这一处离山更远」不许解释，以及「下周我手上有一单」已经兑现完，她手上该有下一单了。S 级：**内河是第三处渗出点，比黑森林更远**——苏昭那条只在心里说的判断，从此有了第二个数据点。
+
+## 进行中检查点（2026-11-07 · ch01 P71–P76 李家法事段）
+
+**用户口述（已批准正典）**：李锦鸿（俊朗的成功人士）带着癌症末期的母亲到昭记求风水阵转运；苏昭一眼看出老妇活不过两个月，但见男人一副忠孝的样子答应下来，算是给人心理安慰；后续去李家做一次仪式、法事。**用户已拍板两条**：① 李家在山脚（山门三十里内），**苏昭亲自去、陈默随行**；② 李锦鸿的钱**挂钩采金集团 / 拆锁工程**，本段只埋道具——P75 廊下一只空白图纸卷袋 + 一顶黄色安全帽，**只入画一次，任何角色不许看、碰、提**。
+
+### 已完成
+
+- 定妆两张入库：`assets/characters/li-jin-hong.png`、`assets/characters/li-mu.png`（各 1024×1536）。偏差记档：李锦鸿的「半转身虚扶」手势没画出来（一手插兜一手垂钥匙）、脸偏冷峻，正篇用动作与软眼神补；李母围巾偏棕、表情偏疲惫而非哄儿子的温和，正篇补。两稿带工具「AI生成」角标水印，属出图工具水印、非我们烧的字，与既往定妆稿同例。**缩略图与 cast 条目未做**，留到站点步。
+- 六页分镜脚本 `comic/ch01/p71.md`–`p76.md` 已写全（几何版式、逐格人数、台词硬分配、参考图链计划、口径）。
+- 本段自锁口径：老妇的病**与元能无关**（瓶全程不入画；禁「转运成功／延寿／改命」任何兑现）；「活不过两个月」只走苏昭心声、不许说出口；法事画成**手艺**（罗盘、棉线、米、纸灯），禁法阵光效、咒语字、金雾、瞳心金圈；忠孝只由动作读（扶肘、拢围巾、自己站着让她坐、推钱手是平的），禁跪地大哭撒钱；疾病少年向尺度（禁化疗恐怖、光头、输液架、尸体感）；名字取**李锦鸿**（用户消息另有「李景鸿」写法，正典以首次出现为准），slug `li-jin-hong` / `li-mu`；李母与 `lao-fu` 硬性区分（无左颊痣、无蓝布包、无压平银发，改针织帽 + 红布抽绳袋 + 驼色新围巾）。
+- 收束刀句：李母「我知道没用。」「我就是想让他有个事做。」**全段只说一次**，往后任何角色不许复述；苏昭反应上限承 P60（手停半拍 + 「……嗯。」），心声「我知道两个月长什么样。」「我送走过四个。」只给读者；回程陈默问「阵有用吗。」苏昭答「有用。」（真话缺一块），陈默心声「她答得太快了。」承 P32。
+
+### 当前阻塞
+
+已解除。2026-11-08 迁到 Doubao Work 后，内置 `image_gen` 通道出图正常（无 403 / code 112），已连续出 P71–P76。Qoder 那条通道的失败签名仍记在「Execution environment」一节：见到 403 / 112 就停手等，不换第三方。
+
+### 待办（按顺序）
+
+1. 生成 P71–P76。参考图链见各页脚本「绘制备注」末条；`images` 传**字符串路径数组**、最多 3 张、第一位给最容易被抢特征的人。
+2. 回填 `p71.md`–`p76.md` 的成图记录（参考图顺序、roll 次数、接受偏差、版式变更）。
+3. 正典 **v2.8 → v2.9**：两张定妆条、李家山脚小院文字锚点（三十里内；与别墅、民宿硬性区分）、法事手艺口径、主线道具种子（图纸袋 + 安全帽只 P75 一次）、李母刀句与苏昭「有用」口径、采金集团挂钩只埋不点破。
+4. 同步 `README.md` 与 `comic/README.md`（七十六页、新角色行、段落 J、口径段）。
+5. 站点：`site/app.js` 追加 n:71–76 六条 `pages`、两个 cast 成员 + 4:5 缩略图、`renderEmptyPages` 文案；`site/index.html` 改七十六页。
+6. 本地校验 → 三个提交（`comic: ...` / `docs: canon v2.9, ...` / `site: ...`）→ push main → wrangler 部署 → 线上校验（prologue 8 / chapter01 76，`errors: []`、`failed: []`）。
+
+### 工具提醒（本段新增）
+
+- `ImageGen` 的 `images` 参数是**字符串路径数组**；传 `{source, type}` 对象会报 `params/images/0 must be string`。
+- 额度耗尽的报错是 `HTTP 403 — {"code":"112", ...}`；见到它就停手等恢复，不要重试循环、不要换通道。
