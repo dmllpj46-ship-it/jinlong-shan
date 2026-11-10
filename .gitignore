@@ -3,3 +3,6 @@ node_modules/
 .wrangler/
 .DS_Store
 Thumbs.db
+
+# QwenWork media-generation task artifacts (session scratch, never committed)
+.qwenwork-media-result-*.json
