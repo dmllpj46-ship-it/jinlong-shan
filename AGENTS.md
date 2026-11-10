@@ -41,23 +41,24 @@ A Japanese-manga-style Eastern fantasy comic, working title **金龙山 / JINLON
 
 ## Execution environment
 
-**This repo was built in Qoder's agent; from 2026-11-08 it continues in Doubao Work.** Canon, scripts, images and the site are untouched — only the tooling changed. Every rule above still holds; where the two environments disagree on *how* to run something, follow the Doubao Work column.
+**This repo was built in Qoder's agent; from 2026-11-08 it continues in Doubao Work; from 2026-11-10 it continues in QwenWork.** Canon, scripts, images and the site are untouched — only the tooling changed. Every rule above still holds; where the environments disagree on *how* to run something, **follow the QwenWork column** (the current one). The Doubao column is kept for history only.
 
-| | Qoder (up to 2026-11-07) | Doubao Work (from 2026-11-08) |
-|---|---|---|
-| Image generation | `ImageGen`; `images` took a **string array of local paths** | built-in `image_gen` / `image_edit` (Seedream 5.0); `image_reference_url_list` takes **URLs only** (up to 10), so local sheets must be uploaded first to get URLs |
-| Writing Chinese text files | bash heredoc `PYTHONUTF8=1 PYTHONIOENCODING=utf-8 python - <<'PYEOF'` | no Bash — PowerShell 7 only. Use the `Write` tool, or a `.py` file run explicitly. Files a person opens need UTF-8 **with** BOM (`utf8BOM`); pwsh 7's `-Encoding utf8` has no BOM. Read with `-Raw` if line endings matter |
-| Shell paths | `cd` then relative paths | absolute paths with `-LiteralPath` on every call; shell state does not persist between calls |
-| Presenting results | — | generated images go out through `<RichMediaCard>`; repo files and links through `present_files` |
-| Unchanged | python 3.13, node 22, `wrangler` on PATH, `C:/Users/WaterZhong/AppData/Local/Temp/jl-*.mjs`, `Temp/t2/enc.py` | same |
+| | Qoder (to 2026-11-07) | Doubao Work (2026-11-08 · history) | **QwenWork (from 2026-11-10 · current)** |
+|---|---|---|---|
+| Image generation | `ImageGen`; `images` = local path array | `image_gen` / `image_edit` (Seedream 5.0); `image_reference_url_list` = **URLs only** (≤10) → local sheets must be uploaded first | built-in `qwenwork_image_generate`, `mode=edit`; `images` takes **absolute local workspace paths or HTTPS/data-URL images** (≤14). Pass the previous page's `.jpg` and each 定妆 `.png` straight from disk — **no `FileBatchUpload`, no short-link upload step**. Request `1024x1536` (or `2048x1152` wide); the output may return a larger JPEG, so download/encode through `enc.py` before use |
+| Writing Chinese text files | bash heredoc `PYTHONUTF8=1 … python - <<'PYEOF'` | PowerShell 7; `Write` tool; `utf8BOM` for files a person opens | shell is **PowerShell 5.1**, not pwsh 7. Always use the `Write` tool for Chinese content (writes UTF-8 directly) — do **not** pipe CJK through PowerShell, no `-Encoding` / BOM dance needed |
+| Shell / paths | `cd` then relative paths | absolute paths with `-LiteralPath`, no state between calls | same — absolute paths with `-LiteralPath`, no state between calls. The workspace `Bash` tool is sandboxed; **git is not reachable there** — run `git` / `wrangler` / version probes with the host-level shell. `git` is **not** on PATH: `& "C:\Program Files\Git\cmd\git.exe" …`. `curl.exe`, `wrangler` and `node` **are** on PATH |
+| Presenting results | — | `<RichMediaCard>` for images, `present_files` for files | `qwenwork_file_present_files` for file/output cards; `artifact_show_link` for online deliverables (DingTalk doc / table / Yida). Local generated files are delivered as file cards, not a `<RichMediaCard>` |
+
+Runtime as measured on this machine 2026-11-10: **python 3.12.10, node v24.21.0, PowerShell 5.1**; `wrangler` on PATH; `C:/Users/WaterZhong/AppData/Local/Temp/t2/enc.py`, `…/t2/check_site.py` and `…/jl-{pages,cast,anchors}.mjs` **all confirmed present**. Those are session-level temp paths — `Test-Path -LiteralPath` before relying on them.
 
 Carried over unchanged and still binding: the STYLE block, pure-geometry panel grammar, `TOTAL PANELS = N`, per-panel cast counts, HAIR / CAST LOCK, and **at most 3 reference images actually passed in, the sheet of the most steal-prone character first**. Writing “Image 1/2/3” in a prompt while attaching nothing still yields an off-style page — that page is scrapped, not re-rolled for taste.
 
-The old channel's failure signature (`HTTP 403`, `{"code":"112"}`) belongs to Qoder's `ImageGen`. The Doubao Work channel's quota limit and error signature have not been probed yet; when one appears, record it in the page's 成图记录 and stop, do not switch to a third-party image API.
+The old channel's failure signature (`HTTP 403`, `{"code":"112"}`) belongs to Qoder's `ImageGen`. The current QwenWork image channel's quota limit and error signature have not been probed yet; when one appears, record it in the page's 成图记录 and stop, do not switch to a third-party image API.
 
 ## Image workflow
 
-- Tool: `ImageGen` in Qoder → `image_gen` / `image_edit` in Doubao Work. Use character sheets as identity references; label them in the prompt (“the first image is the identity reference; keep face, hair, costume and palette unchanged”).
+- Tool: `ImageGen` in Qoder → `image_gen` / `image_edit` in Doubao Work → built-in `qwenwork_image_generate` (`mode=edit`, local paths in `images`) in QwenWork. Use character sheets as identity references; label them in the prompt (“the first image is the identity reference; keep face, hair, costume and palette unchanged”).
 - New character sheets: 1024x1536, same reference-sheet layout as the design bible specifies. Creature sheets: also 1024x1536, full body plus head/scale/sealed-context detail panels. The 金龙 ultimate-form sheet uses the creature-style four-panel layout and passes the male lead sheet plus the mountain anchor.
 - Comic pages: 1024x1536 portrait (or 1536x1024 for wide establishing shots), panel count per rule 4 (usually 3–6 with one dominant panel, diagonal gutters and at least one bleed; the equal 2×2 grid is retired), same ink/screentone style.
 - Style continuity: when drawing page N, pass page N−1 as an additional reference image to lock linework, screentone density and palette.
@@ -121,7 +122,7 @@ Supporting roles are not named yet. Add a slot only when the story needs one, an
 - **线上**：<https://jinlong-shan.pages.dev/>（P01–P54 版）；本轮部署预览 <https://eb433ed0.jinlong-shan.pages.dev>。
 - **P49–P54 的细节不用读这里**：口径与 roll 账在各页 `comic/ch02/pNN.md` 的「## 成图记录」，以及下面 2026-11-10 那个检查点。
 
-**下一段（P55 起）开工顺序**：`Read comic/ch02/p54.md` 的「## 成图记录」→ 按用户口述拆页写 `pNN.md`（版式纯几何、逐格人数、`TOTAL PANELS = 4`）→ 出图三参考（定妆稿优先 + 上一页成图第三）→ `Invoke-WebRequest` 下载 + `enc.py` 入库 → 回填成图记录 → 正典/README/站点 → 校验 → 三提交 → push → deploy。本机 `git` 在 `C:\Program Files\Git\cmd\git.exe`、`wrangler` 在 `C:\Users\WaterZhong\AppData\Local\Programs\nodejs\wrangler.cmd`，都不在 PATH；`curl.exe` 不可用。
+**下一段（P55 起）开工顺序**：`Read comic/ch02/p54.md` 的「## 成图记录」→ 按用户口述拆页写 `pNN.md`（版式纯几何、逐格人数、`TOTAL PANELS = 4`）→ 出图三参考（定妆稿优先 + 上一页成图第三，本地 `.png`/`.jpg` 路径**直接**传进 `qwenwork_image_generate` 的 `images`）→ 成图落到本机输出文件后用 `enc.py` 重编码入库 → 回填成图记录 → 正典/README/站点 → 校验 → 三提交 → push → deploy。本机 `git` 不在 PATH，用 `& "C:\Program Files\Git\cmd\git.exe" …`（且不在沙箱化的 workspace `Bash` 里跑，用 host 级 shell）；`curl.exe`、`wrangler`、`node` 都在 PATH；shell 是 PowerShell 5.1，路径一律绝对 + `-LiteralPath`。
 
 **还没回收的钩子（一个新 agent 不许自己收）**：门后面是什么；谷里出了什么变故；内鬼是谁；日方那条线的「上头」是谁（只留「这里头还有一层。」）；审批地与施工地对不上是谁动的手；停工「没有理由」背后是什么；临时工的钱谁结的；李锦鸿挂电话前那句「我有一件事想请您」；苏昭「现在不能。」「至少现在。」什么时候开；慕白「三天没回来，我进林子。」；那四个人是否康复；「门开着。」（不许复述）；堂口墙根水痕；白玉山子的最终处置；苏雀「……挖了多深。」；「四处」是否锁在既有四个下游点。
 
@@ -475,13 +476,12 @@ P70 留下两个没结的东西：苏雀那句「这一处离山更远」不许�
 ### 恢复顺序（下次开工照这个走）
 
 1. `git status`：本段（P49–P54 + 正典 v3.8 + 文档 + 站点）应已提交；工作树除临时文件外应干净。
-2. 开下一段（P55 起）：先 `Read comic\ch02\p54.md` 的「## 成图记录」拿画风与参考位，再按用户口述拆页；参考链一律在用前 `FileBatchUpload` 现传本地 png/jpg 取新短链（旧链过期就是 `binary[0] is not image`）。
-3. 出图：`image_gen`，`model_version=seedream_5.0_flash`，`width` 与 `height` **都必须显式写 1024 / 1536**；三张参考图按脚本顺序实传（最易被抢特征的定妆稿第一位 + 上一页成图第三）。**验收只读整图一次**，只有格数／角色复制与道具换样／画面文字／参考图串味四类硬伤才作废重出。
-4. 入库：`Invoke-WebRequest -Uri <uri> -OutFile <tmp>`（本机 `curl.exe` 不在 PATH）→ `python "C:/Users/WaterZhong/AppData/Local/Temp/t2/enc.py" <src> <dst>`；回填「## 成图记录」，并把新页 `FileBatchUpload` 一次供下一页当第三参考。
+2. 开下一段（P55 起）：先 `Read comic\ch02\p54.md` 的「## 成图记录」拿画风与参考位，再按用户口述拆页；参考图把本地 `.png`/`.jpg` **绝对路径直接**传进 `qwenwork_image_generate` 的 `images`（不再有 `FileBatchUpload` 换短链那步，也就没有短链过期 `binary[0] is not image`）。
+3. 出图：内置 `qwenwork_image_generate`，`mode=edit`，`size=1024x1536`（宽景 `2048x1152`）；`model` 留空走自动选择。三张参考图按脚本顺序实传（最易被抢特征的定妆稿第一位 + 上一页成图第三）。**验收只读整图一次**，只有格数／角色复制与道具换样／画面文字／参考图串味四类硬伤才作废重出。
+4. 入库：`qwenwork_image_generate` 会把成图落到本机输出文件，拿那个本地路径直接 `python "C:/Users/WaterZhong/AppData/Local/Temp/t2/enc.py" <src> <dst>`（若返回的是 HTTPS URL 再 `curl.exe -L -o <tmp>` 下载，本机 `curl.exe` 在 PATH）；回填「## 成图记录」，下一页当第三参考时直接传该 `.jpg` 本地路径，无需再上传。
 5. 文档与站点：正典新版本条插在上一版之后、`- Canon sheets:` 之前 → 两份 README（状态行、页表、该段口径段、Roadmap）→ `site/app.js` 加新 `n:`（改完 `node --check`）→ `index.html` kicker 与 `.section-note`。
 6. 校验：`node --check site/app.js` + `python "C:/Users/WaterZhong/AppData/Local/Temp/t2/check_site.py"`（本段基线 pages 138 / ch00 8 / ch01 76 / sheets 15 / thumbs 15、missing 全空；每加一页 +1）。
 7. 三次提交（`comic:` / `docs:` / `site:`）→ push `main` → `wrangler pages deploy site --project-name jinlong-shan --branch main --commit-dirty=true --cwd <repo root>`。
 
 **不要做**：不要重出已入库的页；不要为口味重 roll；**不要为「确认」再读一遍图**（不下载裁带、不逐带 Read、不把成图回发给用户当校验）；不要用 `Edit` 大段替换改 canon 与 `site/app.js`（会吞相邻条目和 `const repoUrl`），改完必须 `Select-String` / Grep 复核。
-**本机路径缺口**：`git` 与 `curl.exe` 都不在 PATH——`git` 用 `& "C:\Program Files\Git\cmd\git.exe" …`，下载用 `Invoke-WebRequest -Uri … -OutFile …`。
-**部署入口（本机都不在 PATH）**：`wrangler` 用 `C:\Users\WaterZhong\AppData\Local\Programs\nodejs\wrangler.cmd`（4.151.1）；`git` 用 `C:\Program Files\Git\cmd\git.exe`；`curl.exe` 不可用，下载走 `Invoke-WebRequest -Uri … -OutFile …`。
+**本机路径（2026-11-10 QwenWork 实测）**：`git` 不在 PATH，且**不在沙箱化的 workspace `Bash` 里跑**（git 二进制在沙箱外）——用 host 级 shell `& "C:\Program Files\Git\cmd\git.exe" …`。`curl.exe`、`node`、`wrangler` 都在 PATH；部署 `wrangler pages deploy site --project-name jinlong-shan --branch main --commit-dirty=true --cwd <repo root>`；下载走 `curl.exe -L -o …` 或 `Invoke-WebRequest -Uri … -OutFile …`。
