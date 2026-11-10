@@ -109,6 +109,24 @@ Supporting roles are not named yet. Add a slot only when the story needs one, an
 - 校验脚本放在 `C:/Users/WaterZhong/AppData/Local/Temp/`（会话级临时目录，可能已被清）：`python -m http.server 8765 --bind 127.0.0.1`（仓库根，必须从仓库根起服务）→ headless Chrome `--headless=new --remote-debugging-port=9223 --user-data-dir=.../jl-chrome-profile` → `node jl-pages.mjs 9223 1440 900 "" <url>`（返回 `pages.prologue` / `pages.chapter01` / `errors` / `failed`），另有 `jl-cast.mjs`、`jl-anchors.mjs`。站点容器 id 是 `#prologue-root` / `#pages-root`，**不是** `#chapter01-root`。本地跑会报一条 `ERR_BLOCKED_BY_ORB`，无害（线上应为 `errors: []`、`failed: []`）。
 - 站点数据改动后先做离线核对：解析 `site/app.js` 的 `cast` / `pages`，逐条确认 `sheet`、`thumbs/<slug>.jpg` 与 `comic/<ch>/<slug>.jpg` 在本地存在——缩略图路径由 `sheet` 文件名推导，改名或换版本号时必须一起改。
 
+## 当前状态（2026-11-10 · 交接给下一个 agent）
+
+**一句话**：序章 8 页、第一话 76 页、第二话「上宾」P01–P54 全部分镜 + 成图完成（未上字），已提交、已 push、已部署。下一步是第二话 **P55 起**。
+
+- **仓库**：`C:\Users\WaterZhong\REPOS-LOCAL\jinlong-shan`，分支 `main`，HEAD `828784c site: serve ch02 p49-p54`；工作树应干净。
+- **最近三次提交**：`38fccaa comic: add ch02 p49-p54, the ledger that does not add up` / `d711d9c docs: canon v3.8, a map that does not match` / `828784c site: serve ch02 p49-p54`。
+- **正典版本**：`assets/characters/design-bible.md` 到 **v3.8**（第 35 行，`- Canon sheets:` 在 36 行）。
+- **站点**：`site/app.js` ch02 54 条（`n: 54` 在 876 行，`const repoUrl` 882）；`index.html` kicker「第二话五十四页」+ 13 个 `.section-note`。
+- **离线校验基线**：`python "C:/Users/WaterZhong/AppData/Local/Temp/t2/check_site.py"` → pages **138** / ch00 8 / ch01 76 / sheets 15 / thumbs 15 / missing 空 / li-jin-hong 1 / li-mu 1。每加一页 pages +1。
+- **线上**：<https://jinlong-shan.pages.dev/>（P01–P54 版）；本轮部署预览 <https://eb433ed0.jinlong-shan.pages.dev>。
+- **P49–P54 的细节不用读这里**：口径与 roll 账在各页 `comic/ch02/pNN.md` 的「## 成图记录」，以及下面 2026-11-10 那个检查点。
+
+**下一段（P55 起）开工顺序**：`Read comic/ch02/p54.md` 的「## 成图记录」→ 按用户口述拆页写 `pNN.md`（版式纯几何、逐格人数、`TOTAL PANELS = 4`）→ 出图三参考（定妆稿优先 + 上一页成图第三）→ `Invoke-WebRequest` 下载 + `enc.py` 入库 → 回填成图记录 → 正典/README/站点 → 校验 → 三提交 → push → deploy。本机 `git` 在 `C:\Program Files\Git\cmd\git.exe`、`wrangler` 在 `C:\Users\WaterZhong\AppData\Local\Programs\nodejs\wrangler.cmd`，都不在 PATH；`curl.exe` 不可用。
+
+**还没回收的钩子（一个新 agent 不许自己收）**：门后面是什么；谷里出了什么变故；内鬼是谁；日方那条线的「上头」是谁（只留「这里头还有一层。」）；审批地与施工地对不上是谁动的手；停工「没有理由」背后是什么；临时工的钱谁结的；李锦鸿挂电话前那句「我有一件事想请您」；苏昭「现在不能。」「至少现在。」什么时候开；慕白「三天没回来，我进林子。」；那四个人是否康复；「门开着。」（不许复述）；堂口墙根水痕；白玉山子的最终处置；苏雀「……挖了多深。」；「四处」是否锁在既有四个下游点。
+
+**不要做**：不为口味重 roll；不重出已入库的页；**不为「确认」再读一遍图**（硬规则 16）；不用 `Edit` 大段替换改 canon 与 `site/app.js`（会吞相邻条目和 `const repoUrl`）；大段中文落盘用 `.py` + `Path.write_text`，不用 PowerShell here-string 直写。
+
 ## 已完成检查点（2026-11-07 · ch01 P65–P70 内河鱼怪段）
 
 **用户口述（已批准正典）**：「苏雀带陈默去内河抓鱼怪，行动是深夜，经过一番战斗，陈默收了轻伤，但是依然完成了任务，他的战斗力更强了。」→ 拆成 ch01 P65–P70 六页，兑现 P64 的「下周我手上有一单」。
