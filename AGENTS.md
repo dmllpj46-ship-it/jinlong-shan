@@ -462,3 +462,4 @@ P70 留下两个没结的东西：苏雀那句「这一处离山更远」不许�
 
 **不要做**：不要重出已入库的页；不要为「口味」重 roll；不要下载后裁三带、逐带读图（那是 P71–P75 的老代价）；不要用 `Edit` 大段替换改 canon 与 `site/app.js`（会吞相邻条目和 `const repoUrl`），改完必须 `Select-String` / Grep 复核。
 **本机路径缺口**：`git` 与 `curl.exe` 都不在 PATH——`git` 用 `& "C:\Program Files\Git\cmd\git.exe" …` 调用，下载用 `Invoke-WebRequest -Uri … -OutFile …`。
+**部署入口（本机都不在 PATH）**：`wrangler` 用 `C:\Users\WaterZhong\AppData\Local\Programs\nodejs\wrangler.cmd`（4.151.1）；`git` 用 `C:\Program Files\Git\cmd\git.exe`；`curl.exe` 不可用，下载走 `Invoke-WebRequest -Uri … -OutFile …`。
